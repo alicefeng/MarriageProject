@@ -117,7 +117,9 @@
 				.attr("y", function(d) { return yscale(d.Spouse1Job); })
 				.style("text-anchor", function(d) { if(d.Spouse1Sex == "Female") { return "begin"; }
 													else { return "end"; } })
-				.text(function(d) { return d.Spouse1Job; });
+				.text(function(d) { return d.Spouse1Job; })
+				.on("mouseover", function(d) { return drawLines(d); } )
+				.on("mouseout", function(d) { return eraseLines(d); });
 
 			// create flat dataset based on selected occupation and sex to draw lines for its pairings
 			var subdata = function(SelectedJob) {
@@ -129,24 +131,39 @@
 								   Spouse2Sex: SelectedJob.Spouse2Jobs[i].Spouse2Sex,
 								   NumPairings: SelectedJob.Spouse2Jobs[i].NumPairings });
 				}
-				console.log(flatdata);
+				//console.log(flatdata);
 				return(flatdata);
 			}
 
 			// draw lines between pairings
-			var pairinglines = svg.selectAll("line")
-				.data(subdata(data[2]))
-				.enter()
-				.append("line")
-				.attr("x1", function(d) { if(d.Spouse1Sex == "Male") { return malex; }
-										 else { return femalex; } })
-				.attr("x2", function(d) { if(d.Spouse1Sex == "Male") { return femalex; }
-										 else { return malex; } })
-				.attr("y1", function(d) { return yscale(d.Spouse1Job) - 4; })     
-				.attr("y2", function(d) { return yscale(d.Spouse2Job) - 4; })                      
-				.attr("stroke", "black")
-				.attr("stroke-width", 1)
-				.attr("fill", "none"); 
+			var drawLines = function(selectedJob) {
+				var pairinglines = svg.selectAll("line")
+					.data(subdata(selectedJob))
+					.enter()
+					.append("line")
+					.attr("x1", function(d) { if(d.Spouse1Sex == "Male") { return malex; }
+											 else { return femalex; } })
+					.attr("x2", function(d) { if(d.Spouse1Sex == "Male") { return femalex; }
+											 else { return malex; } })
+					.attr("y1", function(d) { return yscale(d.Spouse1Job) - 4; })     
+					.attr("y2", function(d) { return yscale(d.Spouse2Job) - 4; })                      
+					.attr("stroke", "black")
+					.attr("stroke-width", 1)
+					.attr("fill", "none"); 	
+					
+				return pairinglines;			
+			}
+
+			// delete lines
+			var eraseLines = function(selectedJob) {
+				var hidelines = svg.selectAll("line")
+					.data({})
+					.exit()
+					.remove();
+
+				return hidelines;
+			}
+
 
 		}); 
 
