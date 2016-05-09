@@ -48,6 +48,10 @@
 				font: 12px helvetica;
 			}
 
+			.occGroup:hover {
+				fill: orange;
+			}
+
         </style>
     </head>
     
@@ -83,7 +87,7 @@
 		
 		d3.json("data/pairings.json", function(error, data) {
 			console.log(data);
-			
+
 /*			//create function to sort dates from oldest to most recent
 			function sortDates(a, b) {
 				return a.timestamp - b.timestamp;
@@ -98,18 +102,51 @@
 				.domain(data.map(function(d) { return d.Spouse1Job; }))
 				.rangeRoundBands([padding, h-padding], .1) ;
 
+			// store the horizontal position of the two lists as variables
+			var malex = d3.max(data, function(d) { return d.Spouse1Job.length; }) * 6;
+			var femalex = d3.max(data, function(d) { return d.Spouse1Job.length; }) * 10;
+
 			//print each occupation group positioned based on its score
 			var occGroupTextLeft = svg.selectAll("text")
 				.data(data)
 				.enter()
 				.append("text")
 				.attr("class", "occGroup")
-				.attr("x", function(d) { if(d.Spouse1Sex == "Male") { return d3.max(data, function(d) { return d.Spouse1Job.length; }) * 6; }
-										 else { return d3.max(data, function(d) { return d.Spouse1Job.length; }) * 10; } })
+				.attr("x", function(d) { if(d.Spouse1Sex == "Male") { return malex; }
+										 else { return femalex; } })
 				.attr("y", function(d) { return yscale(d.Spouse1Job); })
 				.style("text-anchor", function(d) { if(d.Spouse1Sex == "Female") { return "begin"; }
 													else { return "end"; } })
 				.text(function(d) { return d.Spouse1Job; });
+
+			// create flat dataset based on selected occupation and sex to draw lines for its pairings
+			var subdata = function(SelectedJob) {
+				var flatdata = [];
+				for(i = 0; i < SelectedJob.Spouse2Jobs.length; i++) {
+					flatdata.push({Spouse1Job: SelectedJob.Spouse1Job,
+								   Spouse1Sex: SelectedJob.Spouse1Sex,
+								   Spouse2Job: SelectedJob.Spouse2Jobs[i].Spouse2Job,
+								   Spouse2Sex: SelectedJob.Spouse2Jobs[i].Spouse2Sex,
+								   NumPairings: SelectedJob.Spouse2Jobs[i].NumPairings });
+				}
+				console.log(flatdata);
+				return(flatdata);
+			}
+
+			// draw lines between pairings
+			var pairinglines = svg.selectAll("line")
+				.data(subdata(data[2]))
+				.enter()
+				.append("line")
+				.attr("x1", function(d) { if(d.Spouse1Sex == "Male") { return malex; }
+										 else { return femalex; } })
+				.attr("x2", function(d) { if(d.Spouse1Sex == "Male") { return femalex; }
+										 else { return malex; } })
+				.attr("y1", function(d) { return yscale(d.Spouse1Job) - 4; })     
+				.attr("y2", function(d) { return yscale(d.Spouse2Job) - 4; })                      
+				.attr("stroke", "black")
+				.attr("stroke-width", 1)
+				.attr("fill", "none"); 
 
 		}); 
 
