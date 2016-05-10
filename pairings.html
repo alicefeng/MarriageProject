@@ -96,11 +96,10 @@
 			//sort the data by oldest comment to newest
 			var data = data.sort(sortDates);
 */			
-			// create scale based on occupation group names
-			// in future change this to be based on scores
-			yscale = d3.scale.ordinal()
-				.domain(data.map(function(d) { return d.Spouse1Job; }))
-				.rangeRoundBands([padding, h-padding], .1) ;
+			// create scale based on occupation rank
+			yscale = d3.scale.linear()
+				.domain([d3.min(data, function(d) { return d.Spouse1Rank; }), d3.max(data, function(d) { return d.Spouse1Rank; }) ])
+				.range([padding, h-padding]) ;
 
 			// store the horizontal position of the two lists as variables
 			var malex = d3.max(data, function(d) { return d.Spouse1Job.length; }) * 6;
@@ -114,7 +113,7 @@
 				.attr("class", "occGroup")
 				.attr("x", function(d) { if(d.Spouse1Sex == "Male") { return malex; }
 										 else { return femalex; } })
-				.attr("y", function(d) { return yscale(d.Spouse1Job); })
+				.attr("y", function(d) { return yscale(d.Spouse1Rank); })
 				.style("text-anchor", function(d) { if(d.Spouse1Sex == "Female") { return "begin"; }
 													else { return "end"; } })
 				.text(function(d) { return d.Spouse1Job; })
@@ -127,8 +126,10 @@
 				for(i = 0; i < SelectedJob.Spouse2Jobs.length; i++) {
 					flatdata.push({Spouse1Job: SelectedJob.Spouse1Job,
 								   Spouse1Sex: SelectedJob.Spouse1Sex,
+								   Spouse1Rank: SelectedJob.Spouse1Rank,
 								   Spouse2Job: SelectedJob.Spouse2Jobs[i].Spouse2Job,
 								   Spouse2Sex: SelectedJob.Spouse2Jobs[i].Spouse2Sex,
+								   Spouse2Rank: SelectedJob.Spouse2Jobs[i].Spouse2Rank,
 								   NumPairings: SelectedJob.Spouse2Jobs[i].NumPairings });
 				}
 				//console.log(flatdata);
@@ -145,8 +146,8 @@
 											 else { return femalex; } })
 					.attr("x2", function(d) { if(d.Spouse1Sex == "Male") { return femalex; }
 											 else { return malex; } })
-					.attr("y1", function(d) { return yscale(d.Spouse1Job) - 4; })     
-					.attr("y2", function(d) { return yscale(d.Spouse2Job) - 4; })                      
+					.attr("y1", function(d) { return yscale(d.Spouse1Rank) - 4; })     
+					.attr("y2", function(d) { return yscale(d.Spouse2Rank) - 4; })                      
 					.attr("stroke", "black")
 					.attr("stroke-width", 1)
 					.attr("fill", "none"); 	
