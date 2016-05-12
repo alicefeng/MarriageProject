@@ -10,23 +10,15 @@
 				font: 24px helvetica;
 			}
 
-    		p{
+    		p {
         		font: 12px helvetica;
         		width: 800px;
     		}
 
-			.xaxis text {
-			    font: 10px sans-serif;
-			    fill: gray;
-			}
-			
-			.xaxis path,
-			.xaxis line {
-			   fill: none;
-			   stroke: gray;
-			   shape-rendering: crispEdges;
-			}
-			
+    		text {
+    			font: 12px helvetica;
+    		}
+
 			.d3-tip {
                 position: absolute;
 				left: 600px;
@@ -87,15 +79,7 @@
 		
 		d3.json("data/pairings.json", function(error, data) {
 			console.log(data);
-
-/*			//create function to sort dates from oldest to most recent
-			function sortDates(a, b) {
-				return a.timestamp - b.timestamp;
-			}
-			
-			//sort the data by oldest comment to newest
-			var data = data.sort(sortDates);
-*/			
+		
 			// create scale based on occupation rank
 			yscale = d3.scale.linear()
 				.domain([d3.min(data, function(d) { return d.Spouse1Rank; }), d3.max(data, function(d) { return d.Spouse1Rank; }) ])
@@ -103,7 +87,8 @@
 
 			// store the horizontal position of the two lists as variables
 			var malex = d3.max(data, function(d) { return d.Spouse1Job.length; }) * 6;
-			var femalex = d3.max(data, function(d) { return d.Spouse1Job.length; }) * 10;
+			var femalex = w - (d3.max(data, function(d) { return d.Spouse1Job.length; }) * 6);
+
 
 			//print each occupation group positioned based on its score
 			var occGroupTextLeft = svg.selectAll("text")
@@ -166,6 +151,33 @@
 			}
 
 
+
+			// label axes
+			var axisLabels = svg.append("g")
+				.attr("class", "axisLabel");
+
+			axisLabels.append("text")
+				.attr("x", malex)
+				.attr("y", 10)
+				.style("text-anchor", "end")
+				.text("Husband's Occupation");
+
+			axisLabels.append("text")
+				.attr("x", femalex)
+				.attr("y", 10)
+				.text("Wife's Occupation");
+
+			axisLabels.append("text")
+				.attr("x", w/2)
+				.attr("y", 30)
+				.style("text-anchor", "middle")
+				.text("Higher Paying, Higher Education Levels");
+
+			axisLabels.append("text")
+				.attr("x", w/2)
+				.attr("y", h-30)
+				.style("text-anchor", "middle")
+				.text("Lower Paying, Lower Education Levels");
 		}); 
 
         </script>
