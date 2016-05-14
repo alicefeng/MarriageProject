@@ -123,6 +123,13 @@
 
 			// draw lines between pairings
 			var drawLines = function(selectedJob) {
+
+				// create scale mapping proportion of total pairings to stroke width
+				wscale = d3.scale.linear()
+					.domain([d3.min(subdata(selectedJob), function(d) { return d.NumPairings; }), 
+							 d3.max(subdata(selectedJob), function(d) { return d.NumPairings; }) ])
+					.range([1, 10]);
+
 				var pairinglines = svg.selectAll("line")
 					.data(subdata(selectedJob))
 					.enter()
@@ -134,7 +141,8 @@
 					.attr("y1", function(d) { return yscale(d.Spouse1Rank) - 4; })     
 					.attr("y2", function(d) { return yscale(d.Spouse2Rank) - 4; })                      
 					.attr("stroke", "black")
-					.attr("stroke-width", 1)
+					.attr("stroke-width", function(d) { if(d.NumPairings >= 30) { return wscale(d.NumPairings); }
+														else { return 0; } })  //only display lines when 30 or more couples are observed
 					.attr("fill", "none"); 	
 					
 				return pairinglines;			
@@ -149,6 +157,7 @@
 
 				return hidelines;
 			}
+
 
 
 
