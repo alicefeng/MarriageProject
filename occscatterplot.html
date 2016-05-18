@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+		<script type="text/javascript" src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+        <style>
+			
+			h1 {
+				font: 24px helvetica;
+			}
+
+    		p {
+        		font: 12px helvetica;
+        		width: 800px;
+    		}
+
+    		text {
+    			font: 11px helvetica;
+    		}
+
+			.axis path,
+			.axis line {
+				fill: none;
+				stroke: #000;
+				shape-rendering: crispEdges;
+			}
+			.d3-tip {
+				font: 12px sans-serif;
+				background-color: #ffffff;
+				border: 1px solid;
+				padding: 0px 5px;
+				border-radius: 5px;
+            }
+			
+			.d3-tip ul {
+				list-style: none;
+				padding-left: 0;
+			}
+
+			.occGroup {
+				font: 11px helvetica;
+			}
+
+			.occGroup:hover {
+				fill: orange;
+			}
+
+        </style>
+    </head>
+    
+    <body>
+        
+		<h1>Basic Facts about Occupations </h1>
+
+		<p>Looking at earnings, educational attainment, employment size and gender breakdown of various occupations. </p>
+
+        <script type="text/javascript">
+		var w = 800,
+			h = 600,
+			padding = 60;
+		
+		//var colors = ["#3b5998", "#517fa4"];
+		
+		// set up formats for currency and commas;
+		var dollarfmt = d3.format("$,");
+		var commafmt = d3.format(",");
+
+		//set up tooltip 
+		var tip = d3.tip()
+			.attr("class", "d3-tip")
+			.offset([-10,0])
+			.html(function(d) { return "<ul><li>Occupation: " + d.SOC_Desc + "</li> <li>Total Number of Workers: " + commafmt(d.TOT_EMP) + 
+										"</li> <li>Median Salary: " + dollarfmt(d.A_MEDIAN) + 
+										"</li> <li>Pct with College Education: " + d.BachelorsPlus + "%</li></ul>"; });	
+	
+		// create scaled based on percent of workers with at least a bachelor's degree;
+		xscale = d3.scale.linear()
+			.domain([0, 100])
+			.range([0, w]);
+
+		// create scale based on median annual salary
+		yscale = d3.scale.linear()
+			.range([h, 0]);
+
+		// create scale based on number of workers employed in the occupation;
+		rscale = d3.scale.sqrt()
+			.range([0, 20]);
+
+		// set up axes
+		var xAxis = d3.svg.axis()
+			.scale(xscale)
+			.orient("bottom");
+
+		var yAxis = d3.svg.axis()
+			.scale(yscale)
+			.orient("left")
+			.tickFormat(dollarfmt);
+
+		var svg = d3.select("body")
+			.append("svg")
+				.attr("width", w + padding + padding)
+				.attr("height", h + padding + padding)
+			.append("g")
+				.attr("transform", "translate(" + padding + "," + padding + ")");
+		
+		svg.call(tip);
+		
+		d3.csv("data/occupationData.csv", function(d) {
+			
+			return {
+				SOC_Code: d.SOC_Code,
+				SOC_Desc: d.SOC_Desc,
+				TOT_EMP: +d.TOT_EMP,
+				A_MEDIAN: +d.A_MEDIAN,
+				BachelorsPlus: +d.BachelorsPlus,
+				PctWomen: +d.PctWomen
+			};
+
+		}, function(error, data) {
+
+			console.log(data);
+
+			// set scale domains
+			yscale.domain([0, d3.max(data, function(d) { return d.A_MEDIAN; }) ]);
+
+			rscale.domain([0, d3.max(data, function(d) { return d.TOT_EMP; }) ]);
+
+			//print each occupation group positioned based on its score
+			var occpoints = svg.selectAll("circle")
+				.data(data)
+				.enter()
+				.append("circle")
+				.attr("class", "occ")
+				.attr("r", function(d) { return rscale(d.TOT_EMP); })
+				.attr("cx", function(d) { return xscale(d.BachelorsPlus); })
+				.attr("cy", function(d) { return yscale(d.A_MEDIAN); })
+				.on("mouseover", tip.show)
+				.on("mouseout", tip.hide);
+
+			// label axes
+			svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + h + ")")
+				.call(xAxis)
+				.append("text")
+				.attr("class", "label")
+				.attr("x", w)
+				.attr("y", -6)
+				.style("text-anchor", "end")
+				.text("Percent of workers with at least a bachelor's degree");
+
+			svg.append("g")
+				.attr("class", "y axis")
+				.call(yAxis)
+				.append("text")
+				.attr("class", "label")
+				.attr("transform", "rotate(-90)")
+				.attr("y", 6)
+				.attr("dy", ".71em")
+				.style("text-anchor", "end")
+				.text("Median Annual Salary");
+	
+		}); 
+
+        </script>
+        
+    </body>
+
+</html>
