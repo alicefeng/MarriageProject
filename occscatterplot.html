@@ -77,15 +77,20 @@
 		// create scaled based on percent of workers with at least a bachelor's degree;
 		xscale = d3.scale.linear()
 			.domain([0, 100])
-			.range([0, w]);
+			.rangeRound([0, w]);
 
 		// create scale based on median annual salary
 		yscale = d3.scale.linear()
-			.range([h, 0]);
+			.rangeRound([h, 0]);
 
 		// create scale based on number of workers employed in the occupation;
 		rscale = d3.scale.sqrt()
-			.range([0, 20]);
+			.range([0, 40]);
+
+		// create scale that assigns color based on gender breakdown
+		color = d3.scale.linear()
+			.domain([0, 50, 100])
+			.range(["blue", "white", "red"]);
 
 		// set up axes
 		var xAxis = d3.svg.axis()
@@ -126,7 +131,64 @@
 
 			rscale.domain([0, d3.max(data, function(d) { return d.TOT_EMP; }) ]);
 
-			//print each occupation group positioned based on its score
+			// add line for median annual wage and label it
+			var medwageline = svg.append("g")
+					.attr("class", "median wage");
+
+			medwageline.append("line")
+				.attr("x1", 0)
+				.attr("y1", yscale(36200))
+				.attr("x2", w)
+				.attr("y2", yscale(36200))
+				.style("stroke", "gray")
+				.style("stroke-width", 1)
+				.style("stroke-dasharray", "3,3");
+
+			medwageline.append("text")
+				.attr("x", w)
+				.attr("y", yscale(36200)-4)
+				.text("Median Annual Wage")
+				.style("text-anchor", "end")
+				.style("fill", "gray");
+
+			// add line for percent of Americans with a college degree and label it
+			var collegeline = svg.append("g")
+					.attr("class", "pct bachelors");
+
+			collegeline.append("line")
+				.attr("x1", xscale(35.6))
+				.attr("y1", 0)
+				.attr("x2", xscale(35.6))
+				.attr("y2", h)
+				.style("stroke", "gray")
+				.style("stroke-width", 1)
+				.style("stroke-dasharray", "3,3");
+
+			// (split label into three text elements to "wrap" it)
+			collegeline.append("text")
+				.attr("x", xscale(35.6)-4)
+				.attr("y", 0)
+				.text("Pct of Americans")
+				.style("text-anchor", "end")
+				.style("fill", "gray");
+
+			collegeline.append("text")
+				.attr("x", xscale(35.6)-4)
+				.attr("y", 12)
+				.text("with a bachelors")
+				.style("text-anchor", "end")
+				.style("fill", "gray");
+
+			collegeline.append("text")
+				.attr("x", xscale(35.6)-4)
+				.attr("y", 24)
+				.text("degree or higher")
+				.style("text-anchor", "end")
+				.style("fill", "gray");
+
+
+
+			// draw circles for each occupation group
 			var occpoints = svg.selectAll("circle")
 				.data(data)
 				.enter()
@@ -135,8 +197,13 @@
 				.attr("r", function(d) { return rscale(d.TOT_EMP); })
 				.attr("cx", function(d) { return xscale(d.BachelorsPlus); })
 				.attr("cy", function(d) { return yscale(d.A_MEDIAN); })
+				.style("fill", function(d) { return color(d.PctWomen); })
+				.style("stroke", "gray")
+				.style("opacity", 0.8)
 				.on("mouseover", tip.show)
 				.on("mouseout", tip.hide);
+
+
 
 			// label axes
 			svg.append("g")
