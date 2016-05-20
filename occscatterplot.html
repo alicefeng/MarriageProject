@@ -117,6 +117,10 @@
 
 		}, function(error, data) {
 
+			// sort data so that larger occupations are drawn first
+			// this way smaller circles are on top and can be selected
+			data.sort(function(a,b) { return b.TOT_EMP - a.TOT_EMP;} );
+
 			console.log(data);
 
 			// set scale domains
