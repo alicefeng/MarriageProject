@@ -38,14 +38,6 @@
 				padding-left: 0;
 			}
 
-			.occGroup {
-				font: 11px helvetica;
-			}
-
-			.occGroup:hover {
-				fill: orange;
-			}
-
         </style>
     </head>
     
@@ -69,10 +61,11 @@
 		//set up tooltip 
 		var tip = d3.tip()
 			.attr("class", "d3-tip")
-			.offset([-10,0])
+			.direction("e")
+			.offset([0, 10])
 			.html(function(d) { return "<ul><li>Occupation: " + d.SOC_Desc + "</li> <li>Total Number of Workers: " + commafmt(d.TOT_EMP) + 
 										"</li> <li>Median Salary: " + dollarfmt(d.A_MEDIAN) + 
-										"</li> <li>Pct with College Education: " + d.BachelorsPlus + "%</li></ul>"; });	
+										"</li> <li>Percent with College Education: " + d.BachelorsPlus + "%</li></ul>"; });	
 	
 		// create scaled based on percent of workers with at least a bachelor's degree;
 		xscale = d3.scale.linear()
