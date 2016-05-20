@@ -16,7 +16,7 @@
     		}
 
     		text {
-    			font: 12px helvetica;
+    			font: 11px helvetica;
     		}
 
 			.d3-tip {
@@ -37,7 +37,7 @@
 			}
 
 			.occGroup {
-				font: 12px helvetica;
+				font: 11px helvetica;
 			}
 
 			.occGroup:hover {
@@ -124,11 +124,11 @@
 			// draw lines between pairings
 			var drawLines = function(selectedJob) {
 
-				// create scale mapping proportion of total pairings to stroke width
+				// create scale mapping proportion of each specific pairing out of all pairings for the selected occupation to stroke width
 				wscale = d3.scale.linear()
 					.domain([d3.min(subdata(selectedJob), function(d) { return d.NumPairings; }), 
 							 d3.max(subdata(selectedJob), function(d) { return d.NumPairings; }) ])
-					.range([1, 10]);
+					.range([1, 8]);
 
 				var pairinglines = svg.selectAll("line")
 					.data(subdata(selectedJob))
@@ -180,13 +180,13 @@
 				.attr("x", w/2)
 				.attr("y", 30)
 				.style("text-anchor", "middle")
-				.text("Higher Paying, Higher Education Levels");
+				.text("Higher Paying Occupations with More Highly Educated Workers");
 
 			axisLabels.append("text")
 				.attr("x", w/2)
 				.attr("y", h-30)
 				.style("text-anchor", "middle")
-				.text("Lower Paying, Lower Education Levels");
+				.text("Lower Paying Occupations with Less Educated Workers");
 		}); 
 
         </script>
