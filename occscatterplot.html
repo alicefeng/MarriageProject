@@ -55,17 +55,17 @@
 		//var colors = ["#3b5998", "#517fa4"];
 		
 		// set up formats for currency and commas;
-		var dollarfmt = d3.format("$,");
-		var commafmt = d3.format(",");
+		var dollarfmt = d3.format("$,.0f");
+		var commafmt = d3.format(",.0f");
 
 		//set up tooltip 
 		var tip = d3.tip()
 			.attr("class", "d3-tip")
 			.direction("e")
 			.offset([0, 10])
-			.html(function(d) { return "<ul><li>Occupation: " + d.SOC_Desc + "</li> <li>Total Number of Workers: " + commafmt(d.TOT_EMP) + 
-										"</li> <li>Median Salary: " + dollarfmt(d.A_MEDIAN) + 
-										"</li> <li>Percent with College Education: " + d.BachelorsPlus + "%</li></ul>"; });	
+			.html(function(d) { return "<ul><li>" + d.My_cat + "</li> <li>Number of Workers: " + commafmt(d.TOT_EMP) + 
+										"</li> <li>Median Annual Salary: " + dollarfmt(d.A_MEDIAN) + 
+										"</li> <li>Percent with College Education: " + commafmt(d.BachelorsPlus) + "%</li></ul>"; });	
 	
 		// create scaled based on percent of workers with at least a bachelor's degree;
 		xscale = d3.scale.linear()
@@ -104,11 +104,10 @@
 		
 		svg.call(tip);
 		
-		d3.csv("data/occupationData.csv", function(d) {
+		d3.csv("data/occupationGroups.csv", function(d) {
 			
 			return {
-				SOC_Code: d.SOC_Code,
-				SOC_Desc: d.SOC_Desc,
+				My_cat: d.My_cat,
 				TOT_EMP: +d.TOT_EMP,
 				A_MEDIAN: +d.A_MEDIAN,
 				BachelorsPlus: +d.BachelorsPlus,
