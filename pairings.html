@@ -19,6 +19,10 @@
     			font: 11px helvetica;
     		}
 
+    		.axisLabel text {
+    			font-style: italic;
+    		}
+
 			.d3-tip {
                 position: absolute;
 				left: 600px;
@@ -37,7 +41,7 @@
 			}
 
 			.occGroup {
-				font: 11px helvetica;
+				font: 12px helvetica;
 			}
 
 			.occGroup:hover {
@@ -54,28 +58,16 @@
 		<p>What jobs do couples tend to hold? </p>
 
         <script type="text/javascript">
-		var w = 1200,
-			h = 1600,
-			padding = 50;
-		
-		//var colors = ["#3b5998", "#517fa4"];
-		
 
-/*
-		//set up tooltip 
-		var tip = d3.tip()
-			.attr("class", "d3-tip")
-			.offset([-10,0])
-			.html(function(d) { return "<ul><li>Commenter: " + d.commenter + "</li> <li>Platform: " + d.platform + 
-										"</li> <li>Time: " + timeformat(d.timestamp) + "</li></ul>"; });	
-*/		
+		var w = 1200,
+			h = 850,
+			padding_top = 50
+			padding_bottom = 40;	
 
 		var svg = d3.select("body")
 			.append("svg")
 			.attr("width", w)
 			.attr("height", h);
-		
-		//svg.call(tip);
 		
 		d3.json("data/pairings.json", function(error, data) {
 			console.log(data);
@@ -83,11 +75,13 @@
 			// create scale based on occupation rank
 			yscale = d3.scale.linear()
 				.domain([d3.min(data, function(d) { return d.Spouse1Rank; }), d3.max(data, function(d) { return d.Spouse1Rank; }) ])
-				.range([padding, h-padding]) ;
+				.range([padding_top, h-padding_bottom]) ;
 
 			// store the horizontal position of the two lists as variables
-			var malex = d3.max(data, function(d) { return d.Spouse1Job.length; }) * 6;
-			var femalex = w - (d3.max(data, function(d) { return d.Spouse1Job.length; }) * 6);
+			var malex = d3.max(data, function(d) { return d.Spouse1Job.length; }) * 7;
+			var femalex = w - (d3.max(data, function(d) { return d.Spouse1Job.length; }) * 7);
+
+
 
 
 			//print each occupation group positioned based on its score
@@ -128,21 +122,22 @@
 				wscale = d3.scale.linear()
 					.domain([d3.min(subdata(selectedJob), function(d) { return d.NumPairings; }), 
 							 d3.max(subdata(selectedJob), function(d) { return d.NumPairings; }) ])
-					.range([1, 8]);
+					.range([1, 6]);
 
 				var pairinglines = svg.selectAll("line")
 					.data(subdata(selectedJob))
 					.enter()
 					.append("line")
-					.attr("x1", function(d) { if(d.Spouse1Sex == "Male") { return malex; }
-											 else { return femalex; } })
-					.attr("x2", function(d) { if(d.Spouse1Sex == "Male") { return femalex; }
-											 else { return malex; } })
+					.attr("x1", function(d) { if(d.Spouse1Sex == "Male") { return malex + 5; }
+											 else { return femalex - 5; } })
+					.attr("x2", function(d) { if(d.Spouse1Sex == "Male") { return femalex - 5; }
+											 else { return malex + 5; } })
 					.attr("y1", function(d) { return yscale(d.Spouse1Rank) - 4; })     
 					.attr("y2", function(d) { return yscale(d.Spouse2Rank) - 4; })                      
-					.attr("stroke", "black")
+					.attr("stroke", "gray")
 					.attr("stroke-width", function(d) { if(d.NumPairings >= 30) { return wscale(d.NumPairings); }
 														else { return 0; } })  //only display lines when 30 or more couples are observed
+					.attr("stroke-linecap", "round")
 					.attr("fill", "none"); 	
 					
 				return pairinglines;			
