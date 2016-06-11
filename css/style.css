@@ -1,0 +1,31 @@
+h1 {
+	font: 24px helvetica;
+}
+
+p {
+	font: 12px helvetica;
+	width: 800px;
+}
+
+text {
+	font: 11px helvetica;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+.d3-tip {
+	font: 12px sans-serif;
+	background-color: #ffffff;
+	border: 1px solid;
+	padding: 0px 5px;
+	border-radius: 5px;
+}
+
+.d3-tip ul {
+	list-style: none;
+	padding-left: 0;
+}
