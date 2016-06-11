@@ -17,6 +17,16 @@ text {
 	stroke: #000;
 	shape-rendering: crispEdges;
 }
+
+.diff path {
+	display: none;
+}
+
+.diff line {
+	shape-rendering: crispEdges;
+	stroke: gray;
+}
+
 .d3-tip {
 	font: 12px sans-serif;
 	background-color: #ffffff;
