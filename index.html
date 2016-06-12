@@ -5,8 +5,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <title>The Marriage Project </title>
         
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    	
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>    	
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
@@ -22,7 +21,7 @@
 		</section>
 
 		<section id="edudiffplot" class="inactive">
-			<h1>Education Attainment Within Couples </h1>
+			<h1>Education Levels Within Couples </h1>
 			<p>A look at how husband's education levels compare to their wives. </p>
 		</section>
 
@@ -38,23 +37,26 @@
 		<script type="text/javascript" src="js/occscatterplot.js"></script>
 		<script>
 			$(function() {
-				var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 600}});
+				var controller = new ScrollMagic.Controller();
 
 				new ScrollMagic.Scene()
 					.triggerElement("#incdiffplot")
 					.setClassToggle("#incdiffplot", "active")
+					.duration(600)
 					.addIndicators()
 					.addTo(controller);
 	
 				new ScrollMagic.Scene()
 					.triggerElement("#edudiffplot")
 					.setClassToggle("#edudiffplot", "active")
+					.duration(600)
 					.addIndicators()
 					.addTo(controller);
 					
 				new ScrollMagic.Scene()
 					.triggerElement("#occscatterplot")
 					.setClassToggle("#occscatterplot", "active")
+					.duration(800)
 					.addIndicators()
 					.addTo(controller);	
 

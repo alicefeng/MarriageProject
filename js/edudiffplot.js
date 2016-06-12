@@ -2,8 +2,6 @@ var w_diff = 800,
 	h_diff = 400,
 	padding_diff = 50;	
 
-// set up formats
-var pctfmt = d3.format("%");
 
 // edudata
 edudata = [
@@ -57,3 +55,36 @@ var bars = eduPlot.selectAll("rect")
   	.attr("height", function(d) { return h_diff - yScale_e(d.value); })
   	.attr("x", function(d, i) { return xEduBarStart + (i * barWidth); })
   	.attr("y", function(d) { return yScale_e(d.value); });
+
+// label bars
+eduPlot.append("text")
+	.attr("class", "edu label")
+	.attr("x", xEduBarStart + barWidth*0.5)
+	.attr("y", h_diff + 15)
+	.text("Wife more educated")
+	.style("fill", "black")
+	.style("text-anchor", "middle");
+
+eduPlot.append("text")
+	.attr("class", "edu label")
+	.attr("x", xEduBarStart + barWidth*1.5)
+	.attr("y", h_diff + 15)
+	.text("Equally educated")
+	.style("fill", "black")
+	.style("text-anchor", "middle");
+
+eduPlot.append("text")
+	.attr("class", "edu label")
+	.attr("x", xEduBarStart + barWidth*2.5)
+	.attr("y", h_diff + 15)
+	.text("Husband more")
+	.style("fill", "black")
+	.style("text-anchor", "middle");
+
+eduPlot.append("text")
+	.attr("class", "edu label")
+	.attr("x", xEduBarStart + barWidth*2.5)
+	.attr("y", h_diff + 30)
+	.text("educated")
+	.style("fill", "black")
+	.style("text-anchor", "middle");

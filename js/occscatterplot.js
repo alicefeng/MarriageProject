@@ -119,7 +119,7 @@ d3.csv("data/occupationGroups.csv", function(d) {
 	collegeline.append("text")
 		.attr("x", xscale(35.6)+4)
 		.attr("y", 12)
-		.text("with a bachelors")
+		.text("with a bachelor's")
 		.style("fill", "gray");
 
 	collegeline.append("text")

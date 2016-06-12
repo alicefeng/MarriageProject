@@ -2,9 +2,6 @@ var w_diff = 800,
 	h_diff = 400,
 	padding_diff = 50;	
 
-// set up formats
-var pctfmt = d3.format("%");
-
 // set up scales
 var yScale_i = d3.scale.linear()
 	.range([h_diff, 0]);
@@ -13,7 +10,7 @@ var yScale_i = d3.scale.linear()
 var yAxis_i = d3.svg.axis()
 	.scale(yScale_i)
 	.orient("right")
-	.ticks(10, "%")
+	.ticks(5, "%")
 	.tickSize(w_diff);
 
 // set up chart
@@ -54,7 +51,7 @@ d3.csv("data/diffdata.csv", function(d) {
 	incAxis.selectAll("text")
 		.attr("x", -25)
 		.attr("text-anchor", "end");
-	
+
 	// draw bars
 	var bars = incPlot.selectAll("rect")
 		.data(data)
@@ -66,5 +63,83 @@ d3.csv("data/diffdata.csv", function(d) {
 	  	.attr("x", function(d, i) { return i * barWidth; })
 	  	.attr("y", function(d) { return yScale_i(d.value); });
 
+	// add labels
+	incPlot.append("text")
+		.attr("x", barWidth - 2)
+		.attr("y", h_diff + 15)
+		.text("Wife's income more")
+		.style("text-anchor", "end");
+
+	incPlot.append("text")
+		.attr("x", barWidth - 2)
+		.attr("y", h_diff + 30)
+		.text("than triple husband's")
+		.style("text-anchor", "end");
+	
+	incPlot.append("line")
+		.attr("x1", barWidth -1)
+		.attr("x2", barWidth -1)
+		.attr("y1", h_diff)
+		.attr("y2", h_diff + 40)
+		.style("stroke", "gray");
+
+	incPlot.append("text")
+		.attr("x", barWidth * 4 - 2)
+		.attr("y", h_diff + 15)
+		.text("Wife's income more")
+		.style("text-anchor", "end");
+
+	incPlot.append("text")
+		.attr("x", barWidth * 4 -2)
+		.attr("y", h_diff + 30)
+		.text("than double husband's")
+		.style("text-anchor", "end");
+
+	incPlot.append("line")
+		.attr("x1", barWidth * 4 -1)
+		.attr("x2", barWidth * 4 -1)
+		.attr("y1", h_diff)
+		.attr("y2", h_diff + 40)
+		.style("stroke", "gray");
+
+	incPlot.append("text")
+		.attr("x", w_diff / 2)
+		.attr("y", h_diff + 15)
+		.text("Within 25%")
+		.style("text-anchor", "middle");
+
+	incPlot.append("line")
+		.attr("x1", barWidth * 12 + 1)
+		.attr("x2", barWidth * 12 + 1)
+		.attr("y1", h_diff)
+		.attr("y2", h_diff + 40)
+		.style("stroke", "gray");
+
+	incPlot.append("text")
+		.attr("x", barWidth * 12 + 2)
+		.attr("y", h_diff + 15)
+		.text("Husband's income more");
+
+	incPlot.append("text")
+		.attr("x", barWidth * 12 + 2)
+		.attr("y", h_diff + 30)
+		.text("than double wife's");
+	
+	incPlot.append("line")
+		.attr("x1", barWidth * 16 -1)
+		.attr("x2", barWidth * 16 -1)
+		.attr("y1", h_diff)
+		.attr("y2", h_diff + 40)
+		.style("stroke", "gray");
+
+	incPlot.append("text")
+		.attr("x", barWidth * 16 + 2)
+		.attr("y", h_diff + 15)
+		.text("Husband's income more");
+
+	incPlot.append("text")
+		.attr("x", barWidth * 16 + 2)
+		.attr("y", h_diff + 30)
+		.text("than triple wife's");
 
 }); 
