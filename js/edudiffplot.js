@@ -52,8 +52,16 @@ var bars = eduPlot.selectAll("rect")
   .append("rect")
   	.attr("class", "diffbar")
   	.attr("width", barWidth - 1)
-  	.attr("height", function(d) { return h_diff - yScale_e(d.value); })
+  	.attr("height", 0)
   	.attr("x", function(d, i) { return xEduBarStart + (i * barWidth); })
+  	.attr("y", h_diff);
+
+eduPlot.selectAll("rect")
+	.transition()
+	.delay(function(d, i) { return i * 100; })
+	.duration(1000)
+	.ease("linear")
+	.attr("height", function(d) { return h_diff - yScale_e(d.value); })
   	.attr("y", function(d) { return yScale_e(d.value); });
 
 // label bars
