@@ -1,6 +1,6 @@
 var w = 800,
-h = 600,
-padding = 60;
+    h = 600,
+    padding = 60;
 
 
 // set up formats for currency and commas;
@@ -16,7 +16,7 @@ var tip = d3.tip()
 					"</li> <li>Mean Annual Salary: " + dollarfmt(d.A_MEAN) + 
 					"</li> <li>Percent with College Education: " + commafmt(d.BachelorsPlus) + "%</li></ul>"; });	
 
-// create scaled based on percent of workers with at least a bachelor's degree;
+// create scale based on percent of workers with at least a bachelor's degree;
 xscale = d3.scale.linear()
 	.domain([0, 100])
 	.rangeRound([0, w]);
