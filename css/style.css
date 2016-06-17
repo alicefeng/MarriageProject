@@ -64,3 +64,8 @@ text {
 	list-style: none;
 	padding-left: 0;
 }
+
+.occsquare:hover {
+	stroke: #fe9929;
+	stroke-width: 3;
+}
