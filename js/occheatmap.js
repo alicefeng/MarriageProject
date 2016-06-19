@@ -69,20 +69,40 @@ d3.csv("data/pairingsbyocc.csv", function(d) {
 	svg_heat.append("text")
 		.attr("x", -100)
 		.attr("y", 10)
-		.text("High paid,");
+		.text("Occupations with ");
 
 	svg_heat.append("text")
 		.attr("x", -100)
 		.attr("y", 22)
-		.text("high educated workers");
+		.text("high paid,");
+	
+	svg_heat.append("text")
+		.attr("x", -100)
+		.attr("y", 34)
+		.text("high educated");
+
+	svg_heat.append("text")
+		.attr("x", -100)
+		.attr("y", 46)
+		.text("workers");
+
+	svg_heat.append("text")
+		.attr("x", w_heat)
+		.attr("y", h_heat - 36)
+		.text("Occupations with");
+
+	svg_heat.append("text")
+		.attr("x", w_heat)
+		.attr("y", h_heat - 24)
+		.text("low paid,");
 
 	svg_heat.append("text")
 		.attr("x", w_heat)
 		.attr("y", h_heat - 12)
-		.text("Low paid,");
+		.text("low educated");
 
 	svg_heat.append("text")
 		.attr("x", w_heat)
 		.attr("y", h_heat)
-		.text("low educated workers");
+		.text("workers");
 })

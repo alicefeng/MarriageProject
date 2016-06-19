@@ -23,7 +23,7 @@ var incPlot = d3.select("#incdiffplot")
 
 
 //load data and draw chart
-d3.csv("data/diffdata.csv", function(d) {
+d3.csv("data/incdiffdata.csv", function(d) {
 
 	return {
 		label: d.label,
