@@ -12,7 +12,7 @@ var yScale_i = d3.scale.ordinal()
 	.rangeRoundBands([0, h_diff], .1);
 
 var color_i = d3.scale.ordinal()
-	.range(["#e66101", "#fdb863", "#f7f7f7", "#b2abd2"]);
+	.range(["#e66101", "#fdb863", "#e6e6e6", "#b2abd2"]);
 
 // set up axes
 var xAxis_i = d3.svg.axis()
@@ -23,6 +23,9 @@ var xAxis_i = d3.svg.axis()
 var yAxis_i = d3.svg.axis()
 	.scale(yScale_i)
 	.orient("left");
+
+// set up a key function to allow for object constancy when transitioning between graphs
+function key(d) { return d.name; }
 
 // set up chart
 var incPlot = d3.select("#incdiffplot")
@@ -39,10 +42,10 @@ d3.csv("data/incdiffdata.csv", function(d) {
 	return {
 		Occupation: d.Occupation,
 		Rank: +d.Rank,
-		LessHalf: +d.LessHalf,
+		Less: +d.LessHalf,
 		Half: +d.Half,
 		Equal: +d.Equal,
-		HalfMore: +d.HalfMore
+		More: +d.HalfMore
 	};
 
 }, function(error, data) {
@@ -81,11 +84,11 @@ d3.csv("data/incdiffdata.csv", function(d) {
 		.data(data)
 		.enter()
 	  .append("g")
-	  	.attr("class", "g")
+	  	.attr("class", "occ")
 	  	.attr("transform", function(d) { return "translate(0," + yScale_i(d.Occupation) + ")"; });
-	
+
 	bars.selectAll("rect")
-		.data(function(d) { return d.cat; })
+		.data(function(d) { return d.cat; }, key)
 		.enter()
 	  .append("rect")
 	  	.attr("x", function(d) { return xScale_i(d.x0); })
@@ -122,64 +125,54 @@ d3.csv("data/incdiffdata.csv", function(d) {
 		.attr("y1", h_diff)
 		.attr("y2", h_diff + 40)
 		.style("stroke", "gray");
-
-	incPlot.append("text")
-		.attr("x", barWidth * 4 - 2)
-		.attr("y", h_diff + 15)
-		.text("Wife's income more")
-		.style("text-anchor", "end");
-
-	incPlot.append("text")
-		.attr("x", barWidth * 4 -2)
-		.attr("y", h_diff + 30)
-		.text("than double husband's")
-		.style("text-anchor", "end");
-
-	incPlot.append("line")
-		.attr("x1", barWidth * 4 -1)
-		.attr("x2", barWidth * 4 -1)
-		.attr("y1", h_diff)
-		.attr("y2", h_diff + 40)
-		.style("stroke", "gray");
-
-	incPlot.append("text")
-		.attr("x", w_diff / 2)
-		.attr("y", h_diff + 15)
-		.text("Within 25%")
-		.style("text-anchor", "middle");
-
-	incPlot.append("line")
-		.attr("x1", barWidth * 12 + 1)
-		.attr("x2", barWidth * 12 + 1)
-		.attr("y1", h_diff)
-		.attr("y2", h_diff + 40)
-		.style("stroke", "gray");
-
-	incPlot.append("text")
-		.attr("x", barWidth * 12 + 2)
-		.attr("y", h_diff + 15)
-		.text("Husband's income more");
-
-	incPlot.append("text")
-		.attr("x", barWidth * 12 + 2)
-		.attr("y", h_diff + 30)
-		.text("than double wife's");
-	
-	incPlot.append("line")
-		.attr("x1", barWidth * 16 -1)
-		.attr("x2", barWidth * 16 -1)
-		.attr("y1", h_diff)
-		.attr("y2", h_diff + 40)
-		.style("stroke", "gray");
-
-	incPlot.append("text")
-		.attr("x", barWidth * 16 + 2)
-		.attr("y", h_diff + 15)
-		.text("Husband's income more");
-
-	incPlot.append("text")
-		.attr("x", barWidth * 16 + 2)
-		.attr("y", h_diff + 30)
-		.text("than triple wife's");
 */
 }); 
+
+function selectEdu() {
+
+	d3.csv("data/edudiffdata.csv", function(d) {
+
+	return {
+		Occupation: d.Occupation,
+		Rank: +d.Rank,
+		Less: +d.Less,
+		Equal: +d.Equal,
+		More: +d.More
+	};
+
+	}, function(error, data) {
+		var color_i = d3.scale.ordinal()
+			.domain(d3.keys(data[0]).filter(function(key) { return key !== "Occupation" && key !== "Rank"; }))
+			.range(["#e66101", "#e6e6e6", "#b2abd2"]);
+
+		// reshape data for stacking
+		data.forEach(function(d) {
+			var x0 = 0;
+			d.cat = color_i.domain().map(function(name) { return {name: name, x0: x0, x1: x0 += +d[name]}; });
+			d.total = d.cat[d.cat.length - 1].x1;
+		});
+
+		console.log(data);
+
+		// sort data in order of occupation rank
+		data.sort(function(a, b) { return a.Rank - b.Rank; });
+
+		// draw bars
+		var bars = incPlot.selectAll(".occ")
+			.data(data);
+
+		bars.selectAll("rect")
+			.data(function(d) { return d.cat; }, key)
+			.transition()
+			.duration(1000)
+			.attr("x", function(d) { return xScale_i(d.x0); })
+			.attr("width", function(d) { return xScale_i(d.x1) - xScale_i(d.x0); })
+	  		.style("fill", function(d) { return color_i(d.name); });
+
+	  	bars.selectAll("rect")
+	  		.data(function(d) { return d.cat; }, key)
+	  		.exit()
+	  		.remove();
+	});
+}
+

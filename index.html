@@ -2,15 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <title>The Marriage Project </title>
-        
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>    	
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
-    	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
-		<script type="text/javascript" src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+        <title>The Socioeconomic Dynamics of Marriage </title>
     </head>
     
     <body>
@@ -19,39 +14,44 @@
 			<h1>Pairings Between Occupations</h1>
 		</section>
 		<section id="incdiffplot" class="inactive">
-			<h1>Income Levels Within Couples </h1>
-			<p>A look at how husband's incomes compare to their wives. </p>
+			<h1>Income and Education Levels Within Couples </h1>
+			<div class="btn-group btn-group-sm" role="group">
+				<button type="button" id="incplot" class="btn btn-default active" onclick="selectInc()">Income</button>
+				<button type="button" id="eduplot" class="btn btn-default" onclick="selectEdu()">Education</button>
+			</div>
+			<p>A look at how spouses' income and education levels compare to one another. </p>
 		</section>
-
-		<section id="edudiffplot" class="inactive">
-			<h1>Education Levels Within Couples </h1>
-			<p>A look at how husband's education levels compare to their wives. </p>
-		</section>
-
         <section id="occscatterplot" class="inactive">
 			<h1>Addendum: Basic Facts about Occupations </h1>	
 			<p>Looking at earnings, educational attainment, employment size and gender breakdown of various occupations. </p>
 		</section>
 
 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>    	
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script>
+    	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+		<script type="text/javascript" src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
 		<script type="text/javascript" src="js/occheatmap.js"></script>
 		<script type="text/javascript" src="js/incdiffplot.js"></script>
-		<script type="text/javascript" src="js/edudiffplot.js"></script>
 		<script type="text/javascript" src="js/occscatterplot.js"></script>
 		<script>
+			$('#incplot').on('click', function() {
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+
+			$('#eduplot').on('click', function() {
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+
 			$(function() {
 				var controller = new ScrollMagic.Controller();
 
 				new ScrollMagic.Scene()
 					.triggerElement("#incdiffplot")
 					.setClassToggle("#incdiffplot", "active")
-					.duration(600)
-					.addIndicators()
-					.addTo(controller);
-	
-				new ScrollMagic.Scene()
-					.triggerElement("#edudiffplot")
-					.setClassToggle("#edudiffplot", "active")
 					.duration(600)
 					.addIndicators()
 					.addTo(controller);

@@ -12,7 +12,7 @@ var yScale_i = d3.scale.ordinal()
 	.rangeRoundBands([0, h_diff], .1);
 
 var color_e = d3.scale.ordinal()
-	.range(["#e66101", "#f7f7f7", "#b2abd2"]);
+	.range(["#e66101", "#e6e6e6", "#b2abd2"]);
 
 // set up axes
 var xAxis_i = d3.svg.axis()
