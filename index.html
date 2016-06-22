@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -10,21 +11,23 @@
     
     <body>
 		
-		<section id="occheatmap">
-			<h1>Pairings Between Occupations</h1>
-		</section>
-		<section id="incdiffplot" class="inactive">
-			<h1>Income and Education Levels Within Couples </h1>
-			<div class="btn-group btn-group-sm" role="group">
-				<button type="button" id="incplot" class="btn btn-default active" onclick="selectInc()">Income</button>
-				<button type="button" id="eduplot" class="btn btn-default" onclick="selectEdu()">Education</button>
-			</div>
-			<p>A look at how spouses' income and education levels compare to one another. </p>
-		</section>
-        <section id="occscatterplot" class="inactive">
-			<h1>Addendum: Basic Facts about Occupations </h1>	
-			<p>Looking at earnings, educational attainment, employment size and gender breakdown of various occupations. </p>
-		</section>
+		<div class="container-fluid">
+			<section id="occheatmap">
+				<h1>Pairings Between Occupations</h1>
+			</section>
+			<section id="incdiffplot" class="inactive">
+				<h1>Income and Education Levels Within Couples </h1>
+				<div class="btn-group btn-group-sm" role="group">
+					<button type="button" id="incplot" class="btn btn-default active" onclick="selectInc()">Income</button>
+					<button type="button" id="eduplot" class="btn btn-default" onclick="selectEdu()">Education</button>
+				</div>
+				<p>A look at how spouses' income and education levels compare to one another. </p>
+			</section>
+	        <section id="occscatterplot" class="inactive">
+				<h1>Addendum: Basic Facts about Occupations </h1>	
+				<p>Looking at earnings, educational attainment, employment size and gender breakdown of various occupations. </p>
+			</section>
+		</div>
 
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>    	
