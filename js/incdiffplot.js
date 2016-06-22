@@ -12,7 +12,7 @@ var yScale_i = d3.scale.ordinal()
 	.rangeRoundBands([0, h_diff], .1);
 
 var color_i = d3.scale.ordinal()
-	.range(["#e66101", "#fdb863", "#e6e6e6", "#b2abd2"]);
+	.range(["#e66101", "#e6e6e6", "#b2abd2"]);
 
 // set up axes
 var xAxis_i = d3.svg.axis()
@@ -28,7 +28,7 @@ var yAxis_i = d3.svg.axis()
 function key(d) { return d.name; }
 
 // set up chart
-var incPlot = d3.select("#incdiffplot")
+var incPlot = d3.select("#incedudiffplot")
   .append("svg")
 	.attr("width", w_diff + padding_left + padding_diff)
 	.attr("height", h_diff + padding_diff)
@@ -42,10 +42,9 @@ d3.csv("data/incdiffdata.csv", function(d) {
 	return {
 		Occupation: d.Occupation,
 		Rank: +d.Rank,
-		Less: +d.LessHalf,
-		Half: +d.Half,
+		Less: +d.Less,
 		Equal: +d.Equal,
-		More: +d.HalfMore
+		More: +d.More
 	};
 
 }, function(error, data) {
@@ -95,42 +94,14 @@ d3.csv("data/incdiffdata.csv", function(d) {
 		.attr("width", function(d) { return xScale_i(d.x1) - xScale_i(d.x0); })
 	  	.attr("height", yScale_i.rangeBand())
 	  	.style("fill", function(d) { return color_i(d.name); });
-/*
-	// add in transition
-	incPlot.selectAll("rect")
-		.transition()
-		.delay(function(d, i) {return i * 100; })
-		.duration(1000)
-		.ease("linear")
-		.attr("height", function(d) { return h_diff - yScale_i(d.value); })
-		.attr("y", function(d) { return yScale_i(d.value); });
-
-
-	// add labels
-	incPlot.append("text")
-		.attr("x", barWidth - 2)
-		.attr("y", h_diff + 15)
-		.text("Wife's income more")
-		.style("text-anchor", "end");
-
-	incPlot.append("text")
-		.attr("x", barWidth - 2)
-		.attr("y", h_diff + 30)
-		.text("than triple husband's")
-		.style("text-anchor", "end");
-	
-	incPlot.append("line")
-		.attr("x1", barWidth -1)
-		.attr("x2", barWidth -1)
-		.attr("y1", h_diff)
-		.attr("y2", h_diff + 40)
-		.style("stroke", "gray");
-*/
 }); 
 
-function selectEdu() {
 
-	d3.csv("data/edudiffdata.csv", function(d) {
+// function to update the chart based on the dataset selected
+function updateChart(dataset) {
+
+	// read in new dataset
+	d3.csv("data/" + dataset + ".csv", function(d) {
 
 	return {
 		Occupation: d.Occupation,
@@ -141,9 +112,6 @@ function selectEdu() {
 	};
 
 	}, function(error, data) {
-		var color_i = d3.scale.ordinal()
-			.domain(d3.keys(data[0]).filter(function(key) { return key !== "Occupation" && key !== "Rank"; }))
-			.range(["#e66101", "#e6e6e6", "#b2abd2"]);
 
 		// reshape data for stacking
 		data.forEach(function(d) {
@@ -152,12 +120,12 @@ function selectEdu() {
 			d.total = d.cat[d.cat.length - 1].x1;
 		});
 
-		console.log(data);
+		console.log(dataset + " used:", data);
 
 		// sort data in order of occupation rank
 		data.sort(function(a, b) { return a.Rank - b.Rank; });
 
-		// draw bars
+		// update bars based on new data
 		var bars = incPlot.selectAll(".occ")
 			.data(data);
 
@@ -169,10 +137,15 @@ function selectEdu() {
 			.attr("width", function(d) { return xScale_i(d.x1) - xScale_i(d.x0); })
 	  		.style("fill", function(d) { return color_i(d.name); });
 
-	  	bars.selectAll("rect")
-	  		.data(function(d) { return d.cat; }, key)
-	  		.exit()
-	  		.remove();
 	});
 }
 
+
+// button handlers
+function selectEdu() {
+	updateChart("edudiffdata");
+}
+
+function selectInc() {
+	updateChart("incdiffdata");
+}

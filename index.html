@@ -15,7 +15,7 @@
 			<section id="occheatmap">
 				<h1>Pairings Between Occupations</h1>
 			</section>
-			<section id="incdiffplot" class="inactive">
+			<section id="incedudiffplot" class="inactive">
 				<h1>Income and Education Levels Within Couples </h1>
 				<div class="btn-group btn-group-sm" role="group">
 					<button type="button" id="incplot" class="btn btn-default active" onclick="selectInc()">Income</button>
@@ -53,8 +53,8 @@
 				var controller = new ScrollMagic.Controller();
 
 				new ScrollMagic.Scene()
-					.triggerElement("#incdiffplot")
-					.setClassToggle("#incdiffplot", "active")
+					.triggerElement("#incedudiffplot")
+					.setClassToggle("#incedudiffplot", "active")
 					.duration(600)
 					.addIndicators()
 					.addTo(controller);
