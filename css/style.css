@@ -1,21 +1,17 @@
-html, body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
 h1 {
-	font: 24px helvetica;
-}
-
-p {
-	font: 12px helvetica;
-	width: 800px;
+	position: relative;
+	text-align: center;
 }
 
 section {
 	position: relative;
 	text-align: center;
+}
+
+p {
+	font: 12px helvetica;
+	text-align: left;
+	position: relative;
 }
 
 .inactive {

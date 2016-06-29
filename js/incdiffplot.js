@@ -1,7 +1,7 @@
-var w_diff = 900,
-	h_diff = 800,
+var w_diff = 800,
+	h_diff = 600,
 	padding_diff = 50,
-	padding_left = 400;	
+	padding_left = 200;	
 
 // set up scales
 var xScale_i = d3.scale.linear()
@@ -70,7 +70,7 @@ d3.csv("data/incdiffdata.csv", function(d) {
 	// draw axes
 	incPlot.append("g")
 		.attr("class", "axis diff")
-		.attr("transform", "translate(0," + padding_diff/2 + ")")
+		//.attr("transform", "translate(0," + padding_diff/2 + ")")
 		.call(xAxis_i);
 
 	incPlot.append("g")
@@ -94,6 +94,11 @@ d3.csv("data/incdiffdata.csv", function(d) {
 		.attr("width", function(d) { return xScale_i(d.x1) - xScale_i(d.x0); })
 	  	.attr("height", yScale_i.rangeBand())
 	  	.style("fill", function(d) { return color_i(d.name); });
+
+	incPlot.append("text")
+		.attr("x", 0)
+		.attr("y", h_diff - 5)
+		.text("Data Source: 2014 American Community Survey");
 }); 
 
 

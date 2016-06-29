@@ -6,26 +6,32 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
-        <title>The Socioeconomic Dynamics of Marriage </title>
+        <title>The Dynamics of Marriage </title>
     </head>
     
     <body>
 		
-		<div class="container-fluid">
-			<section id="occheatmap">
-				<h1>Pairings Between Occupations</h1>
+		<div class="container">
+			<h1>The Socioeconomic Dynamics of Marriage</h1>
+			<section id="intro">
+				<p>In the growing discourse about income inequality in the United States, much has been made about the state of marriage - that it is becoming increasingly concentrated among the well-off and well-educated, that people are pairing off with their socioeconomic peers such that doctors tend to marry doctors or other well-educated professionals.  Just how strong is that effect?</p>
 			</section>
-			<section id="incedudiffplot" class="inactive">
-				<h1>Income and Education Levels Within Couples </h1>
+			<section id="occheatmap" class="inactive">
+				<h2>Who Marries Whom?</h2>
+				<p>The plot below shows how common (or uncommon) marriages between spouses of various occupations are.  For example, 29% of doctors, dentists and pharmacists marry other doctors, dentists or pharmacists while only 0.13% marry chefs, cooks or food preparation workers.  13% of chefs, cooks or food preparation workers marry others with the same occupation while only 0.07% marry a doctor, dentist or pharmacist.</p>
+			</section>
+			<section id="diffplot" class="inactive">
+				<h2>Income and Education Levels Within Couples </h2>
+				<p>Another way of examining the socioeconomic dynamics of marriage is to look at how spouses' income and education levels compare to one another.  Do people tend to marry those with similar earnings and educational attainment as themselves?</p>
 				<div class="btn-group btn-group-sm" role="group">
 					<button type="button" id="incplot" class="btn btn-default active" onclick="selectInc()">Income</button>
 					<button type="button" id="eduplot" class="btn btn-default" onclick="selectEdu()">Education</button>
 				</div>
-				<p>A look at how spouses' income and education levels compare to one another. </p>
+				<div id="incedudiffplot"></div>
 			</section>
 	        <section id="occscatterplot" class="inactive">
-				<h1>Addendum: Basic Facts about Occupations </h1>	
-				<p>Looking at earnings, educational attainment, employment size and gender breakdown of various occupations. </p>
+				<h2>Addendum: Basic Facts about Occupations </h2>
+				<p>Here we can take a look at earnings, educational attainment, employment size and gender breakdown of various occupations. </p>
 			</section>
 		</div>
 
@@ -41,20 +47,20 @@
 		<script type="text/javascript" src="js/incdiffplot.js"></script>
 		<script type="text/javascript" src="js/occscatterplot.js"></script>
 		<script>
-			$('#incplot').on('click', function() {
-				$(this).addClass('active').siblings().removeClass('active');
-			});
-
-			$('#eduplot').on('click', function() {
-				$(this).addClass('active').siblings().removeClass('active');
-			});
 
 			$(function() {
 				var controller = new ScrollMagic.Controller();
 
 				new ScrollMagic.Scene()
-					.triggerElement("#incedudiffplot")
-					.setClassToggle("#incedudiffplot", "active")
+					.triggerElement("#occheatmap")
+					.setClassToggle("#occheatmap", "active")
+					.duration(800)
+					.addIndicators()
+					.addTo(controller);
+
+				new ScrollMagic.Scene()
+					.triggerElement("#diffplot")
+					.setClassToggle("#diffplot", "active")
 					.duration(600)
 					.addIndicators()
 					.addTo(controller);

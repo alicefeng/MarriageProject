@@ -7,15 +7,12 @@ var w_heat = 800,
 percentfmt = d3.format(".2%");
 
 // create color scale
-heatcolors = d3.scale.pow()
-	//.domain([0, 0.0025, 0.006, 0.013, 0.028, 0.15])
-	//.range(["white", "#eff3ff", "#bdd7e7", "#6baed6", "#3182bd", "#08306b"]);
-	.exponent(0.5)
-	.domain([0, 0.15, 0.28])
-	.range(["white", "#333333", "black"]);
+heatcolors = d3.scale.linear()
+	.domain([0, 0.28])
+	.range(["#fff", "#1f097c"]);
 
 // get length of the side of the square
-s = Math.floor(w_heat / 57);
+s = Math.floor(w_heat / 22);
 console.log("The length of each square is " + s);
 
 //set up tooltip 
@@ -23,7 +20,7 @@ var tip_heat = d3.tip()
 	.attr("class", "d3-tip")
 	.direction("e")
 	.offset([0, 10])
-	.html(function(d) { return "<h3>" + percentfmt(d.PctPairs) + " of " + d.Spouse1Job + " marry " + d.Spouse2Job + "</h3>"; });	
+	.html(function(d) { return "<h6>" + percentfmt(d.PctPairs) + " of " + d.Spouse1Job + " marry " + d.Spouse2Job + "</h6>"; });	
 
 // set up graph
 var svg_heat = d3.select("#occheatmap")
@@ -105,4 +102,9 @@ d3.csv("data/pairingsbyocc.csv", function(d) {
 		.attr("x", w_heat)
 		.attr("y", h_heat)
 		.text("workers");
+
+	svg_heat.append("text")
+		.attr("x", 0)
+		.attr("y", h_heat + 20)
+		.text("Data Source: 2014 American Community Survey");
 })
