@@ -1,7 +1,7 @@
-var w_diff = 800,
+var w_diff = 700,
 	h_diff = 600,
 	padding_diff = 50,
-	padding_left = 200;	
+	padding_left = 250;	
 
 // set up scales
 var xScale_i = d3.scale.linear()
@@ -22,7 +22,8 @@ var xAxis_i = d3.svg.axis()
 
 var yAxis_i = d3.svg.axis()
 	.scale(yScale_i)
-	.orient("left");
+	.orient("left")
+	.tickSize(0);
 
 // set up a key function to allow for object constancy when transitioning between graphs
 function key(d) { return d.name; }
@@ -30,8 +31,8 @@ function key(d) { return d.name; }
 // set up chart
 var incPlot = d3.select("#incedudiffplot")
   .append("svg")
-	.attr("width", w_diff + padding_left + padding_diff)
-	.attr("height", h_diff + padding_diff)
+	.attr("width", w_diff + padding_left * 2)
+	.attr("height", h_diff + padding_diff * 2)
   .append("g")
   	.attr("transform", "translate(" + padding_left + ", " + padding_diff + ")");
 
@@ -97,7 +98,7 @@ d3.csv("data/incdiffdata.csv", function(d) {
 
 	incPlot.append("text")
 		.attr("x", 0)
-		.attr("y", h_diff - 5)
+		.attr("y", h_diff + 10)
 		.text("Data Source: 2014 American Community Survey");
 }); 
 

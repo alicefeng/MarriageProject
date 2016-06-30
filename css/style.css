@@ -1,4 +1,4 @@
-h1 {
+h1, h2 {
 	position: relative;
 	text-align: center;
 }
@@ -30,6 +30,10 @@ p {
 
 text {
 	font: 11px helvetica;
+}
+
+.occ-desc {
+	font-style: italic;
 }
 
 .axis path,

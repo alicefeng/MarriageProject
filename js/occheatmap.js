@@ -1,6 +1,7 @@
-var w_heat = 700,
-    h_heat = 700,
-    padding_heat = 100;
+var w_heat = 600,
+    h_heat = 600,
+    padding_heat_side = 225,
+    padding_heat_top = 175;
 
 // create formats
 percentfmt = d3.format(".2%");
@@ -37,10 +38,10 @@ var tip_heat = d3.tip()
 // set up graph
 var svg_heat = d3.select("#occheatmap")
   .append("svg")
-  	.attr("width", w_heat + padding_heat * 2)
-  	.attr("height", h_heat + padding_heat * 2)
+  	.attr("width", w_heat + padding_heat_side * 2)
+  	.attr("height", h_heat + padding_heat_top * 2)
   .append("g")
-  	.attr("transform", "translate(" + padding_heat + "," + padding_heat + ")");
+  	.attr("transform", "translate(" + padding_heat_side + "," + padding_heat_top + ")");
 
 // call tooltip
 svg_heat.call(tip_heat);
@@ -97,47 +98,33 @@ d3.json("data/pairings.json", function(error, data) {
 
 	// add labels
 	svg_heat.append("text")
-		.attr("x", -100)
-		.attr("y", -20)
-		.text("Occupations with ");
+		.attr("class", "occ-desc")
+		.attr("x", -150)
+		.attr("y", -30)
+		.text("Occupations with high paid,");
 
 	svg_heat.append("text")
-		.attr("x", -100)
-		.attr("y", -10)
-		.text("high paid,");
-	
-	svg_heat.append("text")
-		.attr("x", -100)
-		.attr("y", 4)
-		.text("high educated");
+		.attr("class", "occ-desc")
+		.attr("x", -150)
+		.attr("y", -15)
+		.text("high educated workers");
+
 
 	svg_heat.append("text")
-		.attr("x", -100)
-		.attr("y", 16)
-		.text("workers");
+		.attr("class", "occ-desc")
+		.attr("x", w_heat + 5)
+		.attr("y", h_heat - 15)
+		.text("Occupations with low paid");
 
 	svg_heat.append("text")
-		.attr("x", w_heat)
-		.attr("y", h_heat - 36)
-		.text("Occupations with");
-
-	svg_heat.append("text")
-		.attr("x", w_heat)
-		.attr("y", h_heat - 24)
-		.text("low paid,");
-
-	svg_heat.append("text")
-		.attr("x", w_heat)
-		.attr("y", h_heat - 12)
-		.text("low educated");
-
-	svg_heat.append("text")
-		.attr("x", w_heat)
+		.attr("class", "occ-desc")
+		.attr("x", w_heat + 5)
 		.attr("y", h_heat)
-		.text("workers");
+		.text("low educated workers");
 
 	svg_heat.append("text")
+		.attr("class", "occ-desc")
 		.attr("x", 0)
-		.attr("y", h_heat + 20)
+		.attr("y", h_heat + 25)
 		.text("Data Source: 2014 American Community Survey");
 })
