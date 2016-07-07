@@ -17,6 +17,10 @@ var heatcolors = d3.scale.linear()
 	.domain([0, 0.28])
 	.range(["#fff", "#1f097c"]);
 
+var areaScale = d3.scale.sqrt()
+	.domain([0, 0.28])
+	.range([0, 28]);
+
 // set up axes
 var xAxis_h = d3.svg.axis()
 	.scale(xScale_h)
@@ -88,10 +92,11 @@ d3.json("data/pairings.json", function(error, data) {
 		.data(function(d) { return d.Spouse2Jobs; })
 		.enter()
 	  .append("rect")
-	  	.attr("width", s - 1)
-	  	.attr("height", s - 1)
-	  	.attr("x", function(d) { return xScale_h(d.Spouse2Job); })
-	  	.attr("fill", function(d) { return heatcolors(d.PctPairs); })
+	  	.attr("width", function(d) { return areaScale(d.PctPairs); })
+	  	.attr("height", function(d) { return areaScale(d.PctPairs); })
+	  	.attr("x", function(d) { return xScale_h(d.Spouse2Job) + 0.5*(s - areaScale(d.PctPairs)); })
+	  	.attr("y", function(d) { return 0.5*(s - areaScale(d.PctPairs)); })
+	  	.attr("fill", "#1f097c")
 	  	.on("mouseover", tip_heat.show)
 	  	.on("mouseout", tip_heat.hide);
 
