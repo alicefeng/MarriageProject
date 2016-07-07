@@ -53,6 +53,9 @@
 		<script type="text/javascript" src="js/incdiffplot.js"></script>
 		<script type="text/javascript" src="js/occscatterplot.js"></script>
 		<script>
+			$(".btn").click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
 
 			$(function() {
 				var controller = new ScrollMagic.Controller();
