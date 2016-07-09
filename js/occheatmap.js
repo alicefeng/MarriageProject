@@ -1,5 +1,5 @@
-var w_heat = 600,
-    h_heat = 600,
+var w_heat = 500,
+    h_heat = 500,
     padding_heat_side = 225,
     padding_heat_top = 175;
 
@@ -14,12 +14,9 @@ var yScale_h = d3.scale.ordinal()
 	.rangeRoundBands([0, h_heat], .1);
 
 var heatcolors = d3.scale.linear()
-	.domain([0, 0.28])
 	.range(["#fff", "#1f097c"]);
 
-var areaScale = d3.scale.sqrt()
-	.domain([0, 0.28])
-	.range([0, 28]);
+//var areaScale = d3.scale.sqrt();
 
 // set up axes
 var xAxis_h = d3.svg.axis()
@@ -43,7 +40,7 @@ var tip_heat = d3.tip()
 var svg_heat = d3.select("#occheatmap")
   .append("svg")
   	.attr("width", w_heat + padding_heat_side * 2)
-  	.attr("height", h_heat + padding_heat_top * 2)
+  	.attr("height", h_heat + padding_heat_top)
   .append("g")
   	.attr("transform", "translate(" + padding_heat_side + "," + padding_heat_top + ")");
 
@@ -57,10 +54,15 @@ d3.json("data/pairings.json", function(error, data) {
 	// sort data in order of occupation rank
 	data.sort(function(a, b) { return a.Spouse1Rank - b.Spouse1Rank; });
 
-	// get length of the side of the square
+	// set domain of areaScale
+	//areaScale.domain([0, d3.max(data, function(d) { return d3.max(d.Spouse2Jobs, function(d) { return d.PctPairs; }); }) ]);
+	heatcolors.domain([0, d3.max(data, function(d) { return d3.max(d.Spouse2Jobs, function(d) { return d.PctPairs; }); }) ]);
+
+	// get length of the side of the square and assign to range of areaScale
 	s = Math.floor(w_heat / data.length);
 	console.log("The length of each square is " + s);
-
+	//areaScale.range([0, s]);
+	
 	// get list of occupations to label axes with
 	var occlist = data.map(function(d) { return d.Spouse1Job; });
 
@@ -92,11 +94,10 @@ d3.json("data/pairings.json", function(error, data) {
 		.data(function(d) { return d.Spouse2Jobs; })
 		.enter()
 	  .append("rect")
-	  	.attr("width", function(d) { return areaScale(d.PctPairs); })
-	  	.attr("height", function(d) { return areaScale(d.PctPairs); })
-	  	.attr("x", function(d) { return xScale_h(d.Spouse2Job) + 0.5*(s - areaScale(d.PctPairs)); })
-	  	.attr("y", function(d) { return 0.5*(s - areaScale(d.PctPairs)); })
-	  	.attr("fill", "#1f097c")
+	  	.attr("width", s)
+	  	.attr("height", s)
+	  	.attr("x", function(d) { return xScale_h(d.Spouse2Job); })
+	  	.attr("fill", function(d) { return heatcolors(d.PctPairs); })
 	  	.on("mouseover", tip_heat.show)
 	  	.on("mouseout", tip_heat.hide);
 
@@ -127,9 +128,4 @@ d3.json("data/pairings.json", function(error, data) {
 		.attr("y", h_heat)
 		.text("low educated workers");
 
-	svg_heat.append("text")
-		.attr("class", "occ-desc")
-		.attr("x", 0)
-		.attr("y", h_heat + 25)
-		.text("Data Source: 2014 American Community Survey");
 })

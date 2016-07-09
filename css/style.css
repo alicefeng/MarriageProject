@@ -1,17 +1,34 @@
+body {
+	font-family: 'Roboto Slab', serif;
+}
+
+.container{
+	width: 1000px;
+	position: relative;
+}
+
+.row {
+	margin: 100px 0px;
+}
+
+.datasource{
+	position: absolute;
+	top: 500px;
+}
+
 h1, h2 {
 	position: relative;
 	text-align: center;
 }
 
-section {
-	position: relative;
-	text-align: center;
+h3 {
+	padding-bottom: 20px;
 }
 
 p {
-	font: 12px helvetica;
 	text-align: left;
 	position: relative;
+	padding: 5px 0px;
 }
 
 .inactive {
@@ -29,7 +46,7 @@ p {
 }
 
 text {
-	font: 11px helvetica;
+	font: 11px sans-serif;
 }
 
 .occ-desc {
@@ -53,7 +70,7 @@ text {
 }
 
 .d3-tip {
-	font: 12px sans-serif;
+	font-size: small;
 	background-color: #ffffff;
 	border: 1px solid;
 	padding: 0px 5px;

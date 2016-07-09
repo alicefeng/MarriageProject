@@ -1,5 +1,6 @@
-var w_diff = 700,
-	h_diff = 600,
+// chart
+var w_diff = 500,
+	h_diff = 500,
 	padding_diff = 50,
 	padding_left = 250;	
 
@@ -28,8 +29,9 @@ var yAxis_i = d3.svg.axis()
 // set up a key function to allow for object constancy when transitioning between graphs
 function key(d) { return d.name; }
 
+
 // set up chart
-var incPlot = d3.select("#incedudiffplot")
+var incPlot = d3.select("#diffplot")
   .append("svg")
 	.attr("width", w_diff + padding_left * 2)
 	.attr("height", h_diff + padding_diff * 2)
@@ -96,10 +98,6 @@ d3.csv("data/incdiffdata.csv", function(d) {
 	  	.attr("height", yScale_i.rangeBand())
 	  	.style("fill", function(d) { return color_i(d.name); });
 
-	incPlot.append("text")
-		.attr("x", 0)
-		.attr("y", h_diff + 10)
-		.text("Data Source: 2014 American Community Survey");
 }); 
 
 
@@ -147,11 +145,22 @@ function updateChart(dataset) {
 }
 
 
+
 // button handlers
 function selectEdu() {
 	updateChart("edudiffdata");
+
+	//update legend text
+	document.getElementById("diffless").innerHTML = "Spouse More Educated";
+	document.getElementById("diffsame").innerHTML = "Spouse Equally Educated";
+	document.getElementById("diffmore").innerHTML = "Spouse Less Educated";
 }
 
 function selectInc() {
 	updateChart("incdiffdata");
+
+	//update legend text
+	document.getElementById("diffless").innerHTML = "Spouse Earns More";
+	document.getElementById("diffsame").innerHTML = "Spouse Earns Roughly the Same";
+	document.getElementById("diffmore").innerHTML = "Spouse Earns Less";
 }

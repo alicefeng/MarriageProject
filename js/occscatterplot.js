@@ -1,5 +1,5 @@
-var w = 800,
-    h = 600,
+var w = 700,
+    h = 500,
     padding = 60;
 
 
@@ -32,7 +32,7 @@ rscale = d3.scale.sqrt()
 // create scale that assigns color based on gender breakdown
 color = d3.scale.linear()
 	.domain([0, 50, 100])
-	.range(["#67a9cf", "#f7f7f7", "#ef8a62"]);
+	.range(["#0571b0", "#f7f7f7", "#ca0020"]);
 
 // set up axes
 var xAxis = d3.svg.axis()
@@ -168,52 +168,5 @@ d3.csv("data/occupationGroups.csv", function(d) {
 		.attr("dy", ".71em")
 		.style("text-anchor", "end")
 		.text("Mean Annual Salary");
-
-	// add legend
-	legend = svg.append("g")
-		.attr("class", "legend")
-		.attr("transform", "translate(0, -50)");
-
-	legend.append("text")
-		.text("More Men");
-
-	// define gradient for legend
-	var gradient = legend.append("linearGradient")
-		.attr("id", "gender-gradient")
-		.attr("x1", "0%")
-		.attr("x2", "100%")
-		.attr("y1", "0%")
-		.attr("y2", "0%");
-
-	gradient.append("stop")
-		.attr("offset", "0%")
-		.attr("stop-color", "#67a9cf")
-		.attr("stop-opacity", 1);
-
-	gradient.append("stop")
-		.attr("offset", "50%")
-		.attr("stop-color", "#f7f7f7")
-		.attr("stop-opacity", 1);
-
-	gradient.append("stop")
-		.attr("offset", "100%")
-		.attr("stop-color", "#ef8a62")
-		.attr("stop-opacity", 1);
-
-	legend.append("rect")
-		.attr("height", 20)
-		.attr("width", 120)
-		.attr("x", 70)
-		.attr("y", -10)
-		.style("fill", "url(#gender-gradient)");
-
-	legend.append("text")
-		.attr("x", 200)
-		.text("More Women");
-
-	svg.append("text")
-		.attr("x", 0)
-		.attr("y", h + padding - 2)
-		.text("Data Sources: Bureau of Labor Statistics Employment Projections 2012-13, Current Population Survey 2015, Occupational Employment Statistics Survey 2015");
 
 }); 
