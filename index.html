@@ -51,7 +51,7 @@
 			</div>
 			<div id="occcompare" class="row inactive">
 				<div class="col-sm-4 text">
-					<h3>Now let's look at who's getting and married who is not.</h3>
+					<h3>Now let's take a look at who's getting and married who is not.</h3>
 					<p>First let's look at which workers tend to get married.  For these next few graphs, we'll focus on adults between the ages of 35 to 50 since most people will have completed their education, been working and gotten married.</p>
 					<p>The graph to the right breaks down the percentage of workers within each occupational group who are married.</p>
 					<svg class="legend">
@@ -65,7 +65,7 @@
 			</div>
 			<div id="inccompare" class="row inactive">
 				<div class="col-sm-4 text">
-					<p>Here's how the income distribution of unmarried adults compares to those who are married.</p>
+					<p>Here's how the income distribution of married adults compares to those who are not married.</p>
 					<svg class="legend">
 						<g transform="translate(0,20)">
 							<rect x="5" y="0" width="15" height="15" fill="#edf8e9"></rect><text x="25" y="10" id="diffless">Bottom quintile</text>
@@ -77,6 +77,21 @@
 					</svg>
 				</div>
 				<div id="inccompplot" class="col-sm-8 viz"></div>
+			</div>
+			<div id="educompare" class="row inactive">
+				<div class="col-sm-4 text">
+					<p>Here's what the educational attainment of married adults and unmarried adults look like.</p>
+					<svg class="legend">
+						<g transform="translate(0,20)">
+							<rect x="5" y="0" width="15" height="15" fill="#fee5d9"></rect><text x="25" y="10" id="diffless">Less than High School Education</text>
+							<rect x="5" y="20" width="15" height="15" fill="#fcae91"></rect><text x="25" y="30" id="diffsame">High School Diploma</text>
+							<rect x="5" y="40" width="15" height="15" fill="#fb6a4a"></rect><text x="25" y="50" id="diffmore">Some College Education</text>
+							<rect x="5" y="60" width="15" height="15" fill="#de2d26"></rect><text x="25" y="70" id="diffmore">Bachelor's Degree</text>
+							<rect x="5" y="80" width="15" height="15" fill="#a50f15"></rect><text x="25" y="90" id="diffmore">Professional or Advanced Degree</text>
+						</g>
+					</svg>
+				</div>
+				<div id="educompplot" class="col-sm-8 viz"></div>
 			</div>
 			<div id="conclusion" class="row">
 				<p>Marriage dynamics are certainly complex and cannot just be boiled down to numbers and statistics but it is an important topic worth studying due to the associations between marriage, poverty, and the well-being of children.  Who's getting married to whom can impact not only the well-being of the current population but also that of future generations.</p>
@@ -121,6 +136,7 @@
 		<script type="text/javascript" src="js/incdiffplot.js"></script>
 		<script type="text/javascript" src="js/occcompplot.js"></script>
 		<script type="text/javascript" src="js/inccompplot.js"></script>
+		<script type="text/javascript" src="js/educompplot.js"></script>
 		<script type="text/javascript" src="js/occscatterplot.js"></script>
 		<script>
 			$(".btn").click(function() {
@@ -154,6 +170,13 @@
 				new ScrollMagic.Scene()
 					.triggerElement("#inccompare")
 					.setClassToggle("#inccompare", "active")
+					.duration(400)
+					.addIndicators()
+					.addTo(controller);
+
+				new ScrollMagic.Scene()
+					.triggerElement("#educompare")
+					.setClassToggle("#educompare", "active")
 					.duration(400)
 					.addIndicators()
 					.addTo(controller);
