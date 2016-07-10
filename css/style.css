@@ -1,36 +1,3 @@
-body {
-	font-family: 'Roboto Slab', serif;
-}
-
-.container{
-	width: 1000px;
-	position: relative;
-}
-
-.row {
-	margin: 100px 0px;
-}
-
-.datasource{
-	position: absolute;
-	top: 500px;
-}
-
-h1, h2 {
-	position: relative;
-	text-align: center;
-}
-
-h3 {
-	padding-bottom: 20px;
-}
-
-p {
-	text-align: left;
-	position: relative;
-	padding: 5px 0px;
-}
-
 .inactive {
 	opacity: 0.4;
 	transition: opacity 1.5s;
@@ -45,12 +12,70 @@ p {
 	-webkit-transition: opacity 1.5s;
 }
 
+body {
+	font-family: 'Roboto Slab', serif;
+	background-color: #e5e5e5;
+}
+
+.container{
+	width: 1000px;
+	position: relative;
+}
+
+.row {
+	margin: 100px 0px;
+}
+
+.datasource {
+	position: absolute;
+	top: 500px;
+}
+
+#title {
+	margin: 50px 0px 20px 0px;
+}
+
+#subtitle {
+	margin: 10px 0px 50px 0px;
+}
+
+#heatmaptitle {
+	margin-top: 100px;
+}
+
+#footer {
+	font-size: small;
+}
+
+h1, h2 {
+	position: relative;
+	text-align: center;
+}
+
+h3 {
+	padding-bottom: 20px;
+}
+
+h4 {
+	position: relative;
+	text-align: center;
+	font-style: italic;
+}
+
+p {
+	text-align: left;
+	position: relative;
+	padding: 5px 0px;
+}
+
 text {
 	font: 11px sans-serif;
+	fill: #4c4c4c;
 }
 
 .occ-desc {
 	font-style: italic;
+	font-size: small;
 }
 
 .axis path,
@@ -72,7 +97,7 @@ text {
 .d3-tip {
 	font-size: small;
 	background-color: #ffffff;
-	border: 1px solid;
+	border: 2px solid #bbb;
 	padding: 0px 5px;
 	border-radius: 5px;
 }

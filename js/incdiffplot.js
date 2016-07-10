@@ -13,7 +13,7 @@ var yScale_i = d3.scale.ordinal()
 	.rangeRoundBands([0, h_diff], .1);
 
 var color_i = d3.scale.ordinal()
-	.range(["#e66101", "#e6e6e6", "#b2abd2"]);
+	.range(["#e66101", "#f6f6f6", "#b2abd2"]);
 
 // set up axes
 var xAxis_i = d3.svg.axis()
@@ -73,7 +73,7 @@ d3.csv("data/incdiffdata.csv", function(d) {
 	// draw axes
 	incPlot.append("g")
 		.attr("class", "axis diff")
-		//.attr("transform", "translate(0," + padding_diff/2 + ")")
+		.attr("transform", "translate(0, 5)")
 		.call(xAxis_i);
 
 	incPlot.append("g")

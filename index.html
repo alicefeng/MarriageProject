@@ -14,25 +14,27 @@
 		
 		<div class="container">
 			<div class="row" id="intro">
-				<h1>Who's Marrying Whom?</h1>
-				<h2>Looking at the socioeconomic dynamics of marriage</h2>
-				<p>In the growing discourse about income inequality in the United States, much has been made about the state of marriage: that it is becoming increasingly concentrated among the well-off and well-educated, that people are pairing off with their socioeconomic peers.  Just how strong is that effect?</p>
+				<div id="title">
+					<h1>Who's Marrying Whom?</h1>
+				</div>
+				<div id="subtitle">
+					<h4>Looking at the socioeconomic dynamics of marriage</h4>
+				</div>	
+				<p>In the growing discourse about income inequality in the United States, much has been made about the state of marriage: that it is becoming <a href="http://www.usnews.com/news/blogs/data-mine/2015/10/26/marriage-and-the-growing-class-divide">increasingly concentrated among the well-off and well-educated</a> and that people are <a href="http://www.nytimes.com/2015/12/27/upshot/marriages-of-power-couples-reinforce-income-inequality.html?_r=0">pairing off with their socioeconomic peers</a>.  Just how strong is that effect?</p>
 			</div>
 			<div id="occmatch" class="row inactive">
-				<div class="col-sm-4 text">
+				<div class="col-sm-4 text" id="heatmaptitle">
 					<h3>What Jobs do Married Couples Tend to Hold?</h3>
 					<p>Let's first take a look at what occupations tend to pair off together.  Using the 2014 American Community Survey, we can observe the jobs held by over 200,000 married couples.</p>
-					<p>The heatmap below shows just how common (or uncommon) marriages are between different occupations.  Occupations are ordered such that those with high paid, high educated workers are located in the top-left corner and those with low paid, low educated workers are in the bottom right.</p>
-					<div class="datasource">
-						Data Source: 2014 American Community Survey
-					</div>
+					<p>The heatmap to the right shows just how common (or uncommon) marriages are between different occupations.  Occupations are ordered such that those with high paid, high educated workers are located in the top-left corner and those with low paid, low educated workers are in the bottom right.</p>
 				</div>
 				<div id="occheatmap" class="col-sm-8 viz"></div>
 			</div>
 			<div id="diff" class="row inactive">
 				<div class="col-sm-4 text">
-					<h3>Income and Education Levels Within Couples </h3>
+					<h3>Income and Education Levels Between Spouses</h3>
 					<p>Another way of examining the socioeconomic dynamics of marriage is to look at how spouses' income and education levels compare to one another.  Do people tend to marry those with similar earnings and educational attainment as themselves?</p>
+					<p>Click below to see whether Lawyers and Judges tend to earn more than their spouses or if Building Cleaners and Groundskeepers have fewer years of schooling than their partners do.</p>
 					<div class="btn-group btn-group-sm" role="group">
 						<button type="button" id="incplot" class="btn btn-default active" onclick="selectInc()">Income</button>
 						<button type="button" id="eduplot" class="btn btn-default" onclick="selectEdu()">Education</button>
@@ -40,18 +42,29 @@
 					<svg class="legend">
 						<g transform="translate(0,20)">
 							<rect x="5" y="0" width="15" height="15" fill="#e66101"></rect><text x="25" y="10" id="diffless">Spouse Earns More</text>
-							<rect x="5" y="20" width="15" height="15" fill="#e6e6e6"></rect><text x="25" y="30" id="diffsame">Spouse Earns Roughly the Same</text>
+							<rect x="5" y="20" width="15" height="15" fill="#f6f6f6"></rect><text x="25" y="30" id="diffsame">Spouse Earns Roughly the Same</text>
 							<rect x="5" y="40" width="15" height="15" fill="#b2abd2"></rect><text x="25" y="50" id="diffmore">Spouse Earns Less</text>
 						</g>
 					</svg>
-					<div class="datasource">
-						Data Source: 2014 American Community Survey
-					</div>
 				</div>
 				<div id="diffplot" class="col-sm-8 viz"></div>
 			</div>
+			<div id="occcompare" class="row inactive">
+				<div class="col-sm-4 text">
+					<h3>Now let's look at who's getting and married who is not.</h3>
+					<p>First let's look at which workers tend to get married.  For these next few graphs, we'll focus on adults between the ages of 35 to 50 since most people will have completed their education, been working and gotten married.</p>
+					<p>The graph to the right breaks down the percentage of workers within each occupational group who are married.</p>
+					<svg class="legend">
+						<g transform="translate(0,20)">
+							<rect x="5" y="0" width="15" height="15" fill="#6b5ea9"></rect><text x="25" y="10">Married</text>
+							<rect x="5" y="20" width="15" height="15" fill="#ccc"></rect><text x="25" y="30">Not Married</text>
+						</g>
+					</svg>
+				</div>
+				<div id="occcompplot" class="col-sm-8 viz"></div>
+			</div>
 			<div id="conclusion" class="row">
-				<p>Marriage dynamics are certainly complex and cannot just be boiled down to numbers and statistics but hopefully these graphs shed some light on who is marrying whom.</p>
+				<p>Marriage dynamics are certainly complex and cannot just be boiled down to numbers and statistics but it is an important topic worth studying due to the associations between marriage, poverty, and the well-being of children.  Who's getting married to whom can impact not only the well-being of the current population but also that of future generations.</p>
 			</div>
 			<div id="occscatter" class="row inactive">
 		        <div class="col-sm-4 text">
@@ -72,11 +85,12 @@
 							<text x="160" y="15">More Women</text>
 						</g>
 					</svg>
-					<div class="datasource">
-						Data Sources: Bureau of Labor Statistics Employment Projections 2012-13, Current Population Survey 2015, Occupational Employment Statistics Survey 2015
-					</div>
 				</div>
 				<div id="occscatterplot" class="col-sm-8 viz"></div>
+			</div>
+			<div id="footer" class="row">
+				Data Sources: 2014 American Community Survey, Bureau of Labor Statistics Employment Projections 2012-13, Current Population Survey 2015, Occupational Employment Statistics Survey 2015.
+				Code and data available on Github.
 			</div>
 		</div>
 
@@ -90,6 +104,7 @@
 
 		<script type="text/javascript" src="js/occheatmap.js"></script>
 		<script type="text/javascript" src="js/incdiffplot.js"></script>
+		<script type="text/javascript" src="js/occcompplot.js"></script>
 		<script type="text/javascript" src="js/occscatterplot.js"></script>
 		<script>
 			$(".btn").click(function() {
@@ -102,7 +117,7 @@
 				new ScrollMagic.Scene()
 					.triggerElement("#occmatch")
 					.setClassToggle("#occmatch", "active")
-					.duration(600)
+					.duration(700)
 					.addIndicators()
 					.addTo(controller);
 
@@ -113,6 +128,13 @@
 					.addIndicators()
 					.addTo(controller);
 					
+				new ScrollMagic.Scene()
+					.triggerElement("#occcompare")
+					.setClassToggle("#occcompare", "active")
+					.duration(600)
+					.addIndicators()
+					.addTo(controller);
+
 				new ScrollMagic.Scene()
 					.triggerElement("#occscatter")
 					.setClassToggle("#occscatter", "active")
