@@ -86,7 +86,7 @@ d3.csv("data/occmarried.csv", function(d) {
 	  	.attr("transform", function(d) { return "translate(0," + yScale_i(d.Occupation) + ")"; });
 
 	bars.selectAll("rect")
-		.data(function(d) { return d.cat; }, key)
+		.data(function(d) { return d.cat; })
 		.enter()
 	  .append("rect")
 	  	.attr("x", function(d) { return xScale_i(d.x0); })
