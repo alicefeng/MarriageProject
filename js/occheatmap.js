@@ -108,25 +108,25 @@ d3.json("data/pairings.json", function(error, data) {
 		.attr("class", "occ-desc")
 		.attr("x", -150)
 		.attr("y", -30)
-		.text("Occupations with high paid,");
+		.text("Occupations with high-paid,");
 
 	svg_heat.append("text")
 		.attr("class", "occ-desc")
 		.attr("x", -150)
 		.attr("y", -15)
-		.text("high educated workers");
+		.text("well-educated workers");
 
 
 	svg_heat.append("text")
 		.attr("class", "occ-desc")
 		.attr("x", w_heat + 5)
 		.attr("y", h_heat - 15)
-		.text("Occupations with low paid");
+		.text("Occupations with low-paid");
 
 	svg_heat.append("text")
 		.attr("class", "occ-desc")
 		.attr("x", w_heat + 5)
 		.attr("y", h_heat)
-		.text("low educated workers");
+		.text("less-educated workers");
 
 })

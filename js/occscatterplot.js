@@ -140,7 +140,7 @@ d3.csv("data/occupationGroups.csv", function(d) {
 		.attr("cx", function(d) { return xscale(d.BachelorsPlus); })
 		.attr("cy", function(d) { return yscale(d.A_MEAN); })
 		.style("fill", function(d) { return color(d.PctWomen); })
-		.style("stroke", "gray")
+		.style("stroke", "#bbb")
 		.on("mouseover", tip.show)
 		.on("mouseout", tip.hide);
 

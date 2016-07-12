@@ -70,7 +70,7 @@ p {
 
 text {
 	font: 11px sans-serif;
-	fill: #4c4c4c;
+	fill: #808080;
 }
 
 .occ-desc {
@@ -78,10 +78,14 @@ text {
 	font-size: small;
 }
 
+.label {
+	font-weight: 100;
+}
+
 .axis path,
 .axis line {
 	fill: none;
-	stroke: #000;
+	stroke: #808080;
 	shape-rendering: crispEdges;
 }
 
@@ -92,6 +96,10 @@ text {
 .diff line {
 	shape-rendering: crispEdges;
 	stroke: gray;
+}
+
+.comp path {
+	display: none;
 }
 
 .d3-tip {

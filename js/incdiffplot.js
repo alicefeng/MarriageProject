@@ -151,16 +151,16 @@ function selectEdu() {
 	updateChart("edudiffdata");
 
 	//update legend text
-	document.getElementById("diffless").innerHTML = "Spouse More Educated";
-	document.getElementById("diffsame").innerHTML = "Spouse Equally Educated";
-	document.getElementById("diffmore").innerHTML = "Spouse Less Educated";
+	document.getElementById("diffless").innerHTML = "Spouse more educated";
+	document.getElementById("diffsame").innerHTML = "Spouse equally educated";
+	document.getElementById("diffmore").innerHTML = "Spouse less educated";
 }
 
 function selectInc() {
 	updateChart("incdiffdata");
 
 	//update legend text
-	document.getElementById("diffless").innerHTML = "Spouse Earns More";
-	document.getElementById("diffsame").innerHTML = "Spouse Earns Roughly the Same";
-	document.getElementById("diffmore").innerHTML = "Spouse Earns Less";
+	document.getElementById("diffless").innerHTML = "Spouse earns more";
+	document.getElementById("diffsame").innerHTML = "Spouse earns roughly the same";
+	document.getElementById("diffmore").innerHTML = "Spouse earns less";
 }

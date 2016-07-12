@@ -13,7 +13,7 @@ var yScale_i = d3.scale.ordinal()
 	.rangeRoundBands([0, h_diff], .1);
 
 var color_c = d3.scale.ordinal()
-	.range(["#6b5ea9", "#ccc"]);
+	.range(["#6b5ea9", "#bbb"]);
 
 // set up axes
 var xAxis_i = d3.svg.axis()
@@ -68,12 +68,12 @@ d3.csv("data/occmarried.csv", function(d) {
 
 	// draw axes
 	occCompPlot.append("g")
-		.attr("class", "axis diff")
+		.attr("class", "axis comp")
 		.attr("transform", "translate(0, 5)")
 		.call(xAxis_i);
 
 	occCompPlot.append("g")
-		.attr("class", "axis diff")
+		.attr("class", "axis comp")
 		.call(yAxis_i);
 
 
