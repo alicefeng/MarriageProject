@@ -34,7 +34,7 @@ var eduPlot = d3.select("#edudiffplot")
 
 
 //load data and draw chart
-d3.csv("data/edudiffdata.csv", function(d) {
+d3.csv("Data/edudiffdata.csv", function(d) {
 
 	return {
 		Occupation: d.Occupation,
