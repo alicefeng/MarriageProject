@@ -48,7 +48,7 @@ var svg_heat = d3.select("#occheatmap")
 svg_heat.call(tip_heat);
 
 // load data
-d3.json("data/pairings.json", function(error, data) {
+d3.json("Data/pairings.json", function(error, data) {
 	console.log(data);
 
 	// sort data in order of occupation rank
