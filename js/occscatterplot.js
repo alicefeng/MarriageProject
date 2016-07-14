@@ -53,7 +53,7 @@ var svg = d3.select("#occscatterplot")
 
 svg.call(tip);
 
-d3.csv("data/occupationGroups.csv", function(d) {
+d3.csv("Data/occupationGroups.csv", function(d) {
 
 	return {
 		My_cat: d.SOC_Major_Group,
