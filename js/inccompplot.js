@@ -35,7 +35,7 @@ var incCompPlot = d3.select("#inccompplot")
 
 
 //load data and draw chart
-d3.csv("data/inccompare.csv", function(error, data) {
+d3.csv("Data/inccompare.csv", function(error, data) {
 
 	if (error) throw error;
 
