@@ -105,7 +105,7 @@ d3.csv("Data/incdiffdata.csv", function(d) {
 function updateChart(dataset) {
 
 	// read in new dataset
-	d3.csv("data/" + dataset + ".csv", function(d) {
+	d3.csv("Data/" + dataset + ".csv", function(d) {
 
 	return {
 		Occupation: d.Occupation,
