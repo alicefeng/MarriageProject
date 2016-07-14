@@ -40,7 +40,7 @@ var incPlot = d3.select("#diffplot")
 
 
 //load data and draw chart
-d3.csv("data/incdiffdata.csv", function(d) {
+d3.csv("Data/incdiffdata.csv", function(d) {
 
 	return {
 		Occupation: d.Occupation,
