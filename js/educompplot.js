@@ -33,7 +33,7 @@ var eduCompPlot = d3.select("#educompplot")
 
 
 //load data and draw chart
-d3.csv("data/educompare.csv", function(error, data) {
+d3.csv("Data/educompare.csv", function(error, data) {
 
 	if (error) throw error;
 
