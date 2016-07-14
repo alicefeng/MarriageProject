@@ -26,7 +26,8 @@
 				<div class="col-sm-4 text" id="heatmaptitle">
 					<h3>What Jobs do Married Couples Tend to Hold?</h3>
 					<p>Let's first take a look at what occupations tend to pair off together.  Using the 2014 American Community Survey, we can observe the jobs held by over 200,000 married couples.</p>
-					<p>The heatmap to the right shows just how common (or uncommon) marriages are between different occupations.  Occupations are ordered such that those with high-paid, well-educated workers are located in the top-left corner and those with low-paid, less-educated workers are in the bottom right.</p>
+					<p>The heatmap to the right shows just how common (or uncommon) marriages are between different occupation groups.  Groups are ordered such that those with high-paid, well-educated workers are located in the top-left corner and those with low-paid, less-educated workers are in the bottom right.</p>  
+					<p>Hover over each square to find out what percentage of workers within one occupation marry those employed in another.</p>
 				</div>
 				<div id="occheatmap" class="col-sm-8 viz"></div>
 			</div>
@@ -76,13 +77,13 @@
 				<div id="educompplot" class="col-sm-8 viz"></div>
 			</div>
 			<div id="conclusion" class="row">
-				<p>Marriage dynamics are certainly complex and cannot just be boiled down to numbers and statistics, but nevertheless is an important topic worth studying due to the associations between marriage, poverty, and the well-being of children.  Who's getting married to whom can impact not only the well-being of today's families but also that of future generations.</p>
+				<p>Marriage dynamics are certainly complex and cannot just be boiled down to numbers and statistics, but it is nevertheless an important topic worth studying due to the associations between marriage, poverty, and the well-being of children.  Who's getting married to whom can impact not only the well-being of today's families but also that of future generations.</p>
 			</div>
 			<div id="occscatter" class="row inactive">
 		        <div class="col-sm-4 text">
 					<h3>Addendum: Some Facts about Occupations </h3>
-					<p>Here is how average earnings, educational attainment, employment size and gender breakdown compare between these occupational groups. </p>
-					<p>The size of the circle corresponds to the number of workers in that job grouping.</p>
+					<p>Here is how average earnings, educational attainment, employment size and gender composition compare between these occupational groups. </p>
+					<p>The size of the circle corresponds to the number of workers in that job grouping.  Hover over each circle to find out more details.</p>
 					<svg class="legend">
 						<defs>
 							<linearGradient id="gender-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -132,42 +133,42 @@
 					.triggerElement("#occmatch")
 					.setClassToggle("#occmatch", "active")
 					.duration(780)
-					.addIndicators()
+				//	.addIndicators()
 					.addTo(controller);
 
 				new ScrollMagic.Scene()
 					.triggerElement("#diff")
 					.setClassToggle("#diff", "active")
 					.duration(700)
-					.addIndicators()
+				//	.addIndicators()
 					.addTo(controller);
 					
 				new ScrollMagic.Scene()
 					.triggerElement("#occcompare")
 					.setClassToggle("#occcompare", "active")
 					.duration(700)
-					.addIndicators()
+				//	.addIndicators()
 					.addTo(controller);
 
 				new ScrollMagic.Scene()
 					.triggerElement("#inccompare")
 					.setClassToggle("#inccompare", "active")
 					.duration(500)
-					.addIndicators()
+				//	.addIndicators()
 					.addTo(controller);
 
 				new ScrollMagic.Scene()
 					.triggerElement("#educompare")
 					.setClassToggle("#educompare", "active")
 					.duration(500)
-					.addIndicators()
+				//	.addIndicators()
 					.addTo(controller);
 
 				new ScrollMagic.Scene()
 					.triggerElement("#occscatter")
 					.setClassToggle("#occscatter", "active")
 					.duration(700)
-					.addIndicators()
+				//	.addIndicators()
 					.addTo(controller);	
 
 			});

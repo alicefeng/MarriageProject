@@ -1,5 +1,5 @@
 // chart
-var w_diff = 400,
+var w_comp = 450,
 	h_comp = 300,
 	padding_c = 75,
 	padding_left = 250;	
@@ -9,7 +9,7 @@ var yScale_ce = d3.scale.linear()
 	.range([h_comp, 0]);
 
 var xScale0_c = d3.scale.ordinal()
-	.rangeRoundBands([0, w_diff], .1);
+	.rangeRoundBands([0, w_comp], .1);
 
 var xScale1_ce = d3.scale.ordinal();
 
@@ -26,7 +26,7 @@ var yAxis_c = d3.svg.axis()
 // set up chart
 var eduCompPlot = d3.select("#educompplot")
   .append("svg")
-	.attr("width", w_diff + padding_left)
+	.attr("width", w_comp + padding_left)
 	.attr("height", h_comp + padding_c * 2)
   .append("g")
   	.attr("transform", "translate(" + padding_left + ", " + padding_diff + ")");
