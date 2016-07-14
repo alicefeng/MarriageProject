@@ -37,7 +37,7 @@ var occCompPlot = d3.select("#occcompplot")
 
 
 //load data and draw chart
-d3.csv("data/occmarried.csv", function(d) {
+d3.csv("Data/occmarried.csv", function(d) {
 
 	return {
 		Occupation: d.Occ,
