@@ -1,3 +1,5 @@
+var dataset;
+
 // chart
 var w = 800,
 	h = 600,
@@ -68,7 +70,6 @@ d3.csv('Data/data_husbands.csv', function(d) {
 	};
 
 }, function(error, data) {
-	//console.log(data);
 
 	yScale.domain([d3.min(data, function(d) { return d.surprise; }), d3.max(data, function(d) { return d.surprise; }) ]);
 
@@ -76,11 +77,11 @@ d3.csv('Data/data_husbands.csv', function(d) {
 		.key(function(d) { return d.husband_occ; })
 		.entries(data);
 
-	//console.log(d3.values(nested_data).map(function(d) { return d.key; }));
-
+	dataset = nested_data;
+	
 	//populate dropdown with occupation names
-	var occupations = d3.values(nested_data).map(function(d) { return d.key; });
-	//console.log(occupations);
+	var occupations = d3.values(dataset).map(function(d) { return d.key; });
+
 	var select = d3.select("#occselect")
 		.on("change", onchange);
 
@@ -90,25 +91,33 @@ d3.csv('Data/data_husbands.csv', function(d) {
 		.enter()
 		.append("option")
 		.text(function(d) { return d; })
-		.attr("value", function(d) { return d; });
-
+		.attr("value", function(d) { return d; }); 
+	
 	make_surprise_plot(nested_data, "Chief executives and legislators");
 });
 
-function onchange(data) {
+
+function onchange() {
 	selectOcc = d3.select('#occselect').property('value');
-	make_surprise_plot(data, selectOcc);
+	make_surprise_plot(dataset, selectOcc);
 }
 
 function make_surprise_plot(data, occupation) {
 	var selected = data.filter(function(d) { return d.key===occupation; });
 	
-	var circles = surprisePlot.selectAll(".occ")
+	var circles = surprisePlot.selectAll("circle")
 		.data(selected[0].values)
-		.enter()
+		.attr("r", function(d) { return rScale(d.pct_women); })
+	  	.attr("cx", function(d) { return xScale(d.wife_edu); }) 
+	  	.attr("cy", function(d) { return yScale(d.surprise); })
+	  	.attr("fill", function(d) { return occScale(d.wife_occ_group); });
+
+	circles.enter()
 	  .append("circle")
 	  	.attr("r", function(d) { return rScale(d.pct_women); })
 	  	.attr("cx", function(d) { return xScale(d.wife_edu); }) 
 	  	.attr("cy", function(d) { return yScale(d.surprise); })
 	  	.attr("fill", function(d) { return occScale(d.wife_occ_group); });
+
+	circles.exit().remove();
 }
