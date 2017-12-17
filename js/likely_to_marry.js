@@ -68,10 +68,11 @@ d3.csv('Data/surprise_w.csv', function(d) {
 	surprisePlot1.call(tip);
 
 	surprisePlot1.append("text")
-		.attr("x", 100)
+		.attr("x", 40)
 		.attr("y", -30)
 		.attr("class", "label")
-		.text("Who Men are Likely to Marry");
+		.text("Who Men are Likely to Marry")
+		.style("font-size", "1.75rem");
 
 	//label axes
 	surprisePlot1.append("g")
@@ -137,10 +138,11 @@ d3.csv('Data/surprise_h.csv', function(d) {
 	surprisePlot2.call(tip3);
 
 	surprisePlot2.append("text")
-		.attr("x", 100)
+		.attr("x", 30)
 		.attr("y", -30)
 		.attr("class", "label")
-		.text("Who Women are Likely to Marry");
+		.text("Who Women are Likely to Marry")
+		.style("font-size", "1.75rem");
 
 	//label axes
 	surprisePlot2.append("g")
