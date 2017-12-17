@@ -1,0 +1,97 @@
+"OCCP_H","Husband_Occ","OCCP_W","Wife_Occ","Husband_Occ_Group","Wife_Occ_Group","rank","num_couples","pct_couples","H_occ_rank","W_occ_rank","top_women_job","top_men_job"
+2310,"Elementary and middle school teachers",2310,"Elementary and middle school teachers","Education, Training, and Library Occupations","Education, Training, and Library Occupations",1,1219,0.00618091471453199,42,10,1,0
+430,"Miscellaneous managers",2310,"Elementary and middle school teachers","Management Occupations","Education, Training, and Library Occupations",2,766,0.00388398742521042,69,10,1,0
+430,"Miscellaneous managers",430,"Miscellaneous managers","Management Occupations","Management Occupations",3,696,0.00352905384849407,69,101,0,0
+9130,"Truck drivers",5700,"Secretaries and administrative assistants","Transportation and Material Moving Occupations","Office and Administrative Support Occupations",4,558,0.00282932765439611,1,1,1,1
+430,"Miscellaneous managers",5700,"Secretaries and administrative assistants","Management Occupations","Office and Administrative Support Occupations",5,533,0.00270256566271169,69,1,1,0
+3060,"Physicians and surgeons",3060,"Physicians and surgeons","Healthcare Practitioners and Technical Occupations","Healthcare Practitioners and Technical Occupations",6,476,0.00241354832167123,40,60,0,0
+4700,"Retail sales supervisors",4700,"Retail sales supervisors","Sales and Related Occupations","Sales and Related Occupations",7,475,0.00240847784200385,19,30,0,1
+2100,"Layers and judges",2100,"Layers and judges","Legal Occupations","Legal Occupations",8,423,0.00214481289930027,34,64,0,0
+430,"Miscellaneous managers",3255,"Registered nurses","Management Occupations","Healthcare Practitioners and Technical Occupations",9,409,0.002073826183957,69,3,1,0
+2200,"Postsecondary teachers",2200,"Postsecondary teachers","Education, Training, and Library Occupations","Education, Training, and Library Occupations",10,401,0.00203326234661799,17,20,1,1
+9130,"Truck drivers",3255,"Registered nurses","Transportation and Material Moving Occupations","Healthcare Practitioners and Technical Occupations",11,364,0.00184565459892506,1,3,1,1
+3255,"Registered nurses",3255,"Registered nurses","Healthcare Practitioners and Technical Occupations","Healthcare Practitioners and Technical Occupations",12,343,0.00173917452591015,59,3,1,0
+9130,"Truck drivers",2310,"Elementary and middle school teachers","Transportation and Material Moving Occupations","Education, Training, and Library Occupations",13,339,0.00171889260724064,1,10,1,1
+4700,"Retail sales supervisors",2310,"Elementary and middle school teachers","Sales and Related Occupations","Education, Training, and Library Occupations",14,330,0.00167325829023426,19,10,1,1
+1020,"Software developers",1020,"Software developers","Computer and mathematical occupations","Computer and mathematical occupations",15,308,0.00156170773755197,11,67,0,1
+2320,"Secondary school teachers",2310,"Elementary and middle school teachers","Education, Training, and Library Occupations","Education, Training, and Library Occupations",16,293,0.00148565054254132,36,10,1,0
+4850,"Wholesale sales representatives",2310,"Elementary and middle school teachers","Sales and Related Occupations","Education, Training, and Library Occupations",17,290,0.00147043910353919,7,10,1,1
+230,"Education administrators",2310,"Elementary and middle school teachers","Management Occupations","Education, Training, and Library Occupations",18,289,0.00146536862387182,109,10,1,0
+4700,"Retail sales supervisors",5700,"Secretaries and administrative assistants","Sales and Related Occupations","Office and Administrative Support Occupations",19,287,0.00145522766453707,19,1,1,1
+3850,"Police officers",2310,"Elementary and middle school teachers","Protective Service Occupations","Education, Training, and Library Occupations",20,286,0.00145015718486969,25,10,1,0
+800,"Accountants and auditors",2310,"Elementary and middle school teachers","Business and Financial Operations Occupations","Education, Training, and Library Occupations",21,268,0.00135888855085691,29,10,1,0
+4760,"Retail salespersons",2310,"Elementary and middle school teachers","Sales and Related Occupations","Education, Training, and Library Occupations",22,237,0.00120170368116824,2,10,1,1
+4710,"Non-retail sales supervisors",2310,"Elementary and middle school teachers","Sales and Related Occupations","Education, Training, and Library Occupations",23,236,0.00119663320150086,96,10,1,0
+6200,"Construction supervisors",5700,"Secretaries and administrative assistants","Construction and Extraction Occupations","Office and Administrative Support Occupations",24,232,0.00117635128283136,28,1,1,0
+430,"Miscellaneous managers",800,"Accountants and auditors","Management Occupations","Business and Financial Operations Occupations",25,231,0.00117128080316398,69,19,1,0
+7700,"Production supervisors",5700,"Secretaries and administrative assistants","Production Occupations","Office and Administrative Support Occupations",26,231,0.00117128080316398,30,1,1,0
+4850,"Wholesale sales representatives",5700,"Secretaries and administrative assistants","Sales and Related Occupations","Office and Administrative Support Occupations",27,230,0.0011662103234966,7,1,1,1
+10,"Chief executives and legislators",10,"Chief executives and legislators","Management Occupations","Management Occupations",28,225,0.00114085792515972,97,155,0,0
+10,"Chief executives and legislators",2310,"Elementary and middle school teachers","Management Occupations","Education, Training, and Library Occupations",29,224,0.00113578744549234,97,10,1,0
+2100,"Layers and judges",2310,"Elementary and middle school teachers","Legal Occupations","Education, Training, and Library Occupations",30,224,0.00113578744549234,34,10,1,0
+9130,"Truck drivers",3600,"Nursing, psychiatric, and home health aides","Transportation and Material Moving Occupations","Healthcare Support Occupations",31,219,0.00111043504715546,1,6,1,1
+4700,"Retail sales supervisors",3255,"Registered nurses","Sales and Related Occupations","Healthcare Practitioners and Technical Occupations",32,213,0.0010800121691512,19,3,1,1
+205,"Farmers, ranchers, and other agricultural managers",2310,"Elementary and middle school teachers","Management Occupations","Education, Training, and Library Occupations",33,207,0.00104958929114694,316,10,1,0
+9130,"Truck drivers",5120,"Bookkeeping, accounting, and auditing clerks","Transportation and Material Moving Occupations","Office and Administrative Support Occupations",34,204,0.00103437785214481,1,11,1,1
+9130,"Truck drivers",4700,"Retail sales supervisors","Transportation and Material Moving Occupations","Sales and Related Occupations",35,203,0.00102930737247744,1,30,0,1
+4710,"Non-retail sales supervisors",5700,"Secretaries and administrative assistants","Sales and Related Occupations","Office and Administrative Support Occupations",36,202,0.00102423689281006,96,1,1,0
+800,"Accountants and auditors",800,"Accountants and auditors","Business and Financial Operations Occupations","Business and Financial Operations Occupations",37,196,0.000993814014805801,29,19,1,0
+10,"Chief executives and legislators",5700,"Secretaries and administrative assistants","Management Occupations","Office and Administrative Support Occupations",38,195,0.000988743535138424,97,1,1,0
+9130,"Truck drivers",5240,"Customer service representatives","Transportation and Material Moving Occupations","Office and Administrative Support Occupations",39,190,0.000963391136801541,1,9,1,1
+3850,"Police officers",3255,"Registered nurses","Protective Service Occupations","Healthcare Practitioners and Technical Occupations",40,188,0.000953250177466788,25,3,1,0
+310,"Food service managers",310,"Food service managers","Management Occupations","Management Occupations",41,187,0.000948179697799412,138,125,0,0
+430,"Miscellaneous managers",120,"Financial managers","Management Occupations","Management Occupations",42,184,0.000932968258797282,69,55,0,0
+120,"Financial managers",2310,"Elementary and middle school teachers","Management Occupations","Education, Training, and Library Occupations",43,183,0.000927897779129906,63,10,1,0
+205,"Farmers, ranchers, and other agricultural managers",5700,"Secretaries and administrative assistants","Management Occupations","Office and Administrative Support Occupations",44,183,0.000927897779129906,316,1,1,0
+9130,"Truck drivers",5000,"Office and administrative support supervisors","Transportation and Material Moving Occupations","Office and Administrative Support Occupations",45,180,0.000912686340127776,1,14,1,1
+1020,"Software developers",2310,"Elementary and middle school teachers","Computer and mathematical occupations","Education, Training, and Library Occupations",46,179,0.0009076158604604,11,10,1,1
+4760,"Retail salespersons",5700,"Secretaries and administrative assistants","Sales and Related Occupations","Office and Administrative Support Occupations",47,178,0.000902545380793023,2,1,1,1
+430,"Miscellaneous managers",4700,"Retail sales supervisors","Management Occupations","Sales and Related Occupations",48,175,0.000887333941790893,69,30,0,0
+2310,"Elementary and middle school teachers",3255,"Registered nurses","Education, Training, and Library Occupations","Healthcare Practitioners and Technical Occupations",49,175,0.000887333941790893,42,3,1,0
+4850,"Wholesale sales representatives",3255,"Registered nurses","Sales and Related Occupations","Healthcare Practitioners and Technical Occupations",50,175,0.000887333941790893,7,3,1,1
+205,"Farmers, ranchers, and other agricultural managers",205,"Farmers, ranchers, and other agricultural managers","Management Occupations","Management Occupations",51,174,0.000882263462123517,316,315,0,0
+20,"General and operations managers",2310,"Elementary and middle school teachers","Management Occupations","Education, Training, and Library Occupations",52,171,0.000867052023121387,4,10,1,1
+6230,"Carpenters",5700,"Secretaries and administrative assistants","Construction and Extraction Occupations","Office and Administrative Support Occupations",53,170,0.000861981543454011,21,1,1,0
+430,"Miscellaneous managers",5000,"Office and administrative support supervisors","Management Occupations","Office and Administrative Support Occupations",54,169,0.000856911063786634,69,14,1,0
+6200,"Construction supervisors",2310,"Elementary and middle school teachers","Construction and Extraction Occupations","Education, Training, and Library Occupations",55,169,0.000856911063786634,28,10,1,0
+430,"Miscellaneous managers",5120,"Bookkeeping, accounting, and auditing clerks","Management Occupations","Office and Administrative Support Occupations",56,167,0.000846770104451881,69,11,1,0
+6260,"Construction laborers",5700,"Secretaries and administrative assistants","Construction and Extraction Occupations","Office and Administrative Support Occupations",57,165,0.000836629145117128,15,1,1,1
+2320,"Secondary school teachers",2320,"Secondary school teachers","Education, Training, and Library Occupations","Education, Training, and Library Occupations",58,162,0.000821417706114998,36,23,0,0
+430,"Miscellaneous managers",5240,"Customer service representatives","Management Occupations","Office and Administrative Support Occupations",59,161,0.000816347226447622,69,9,1,0
+9620,"Laborers and hand movers",5700,"Secretaries and administrative assistants","Transportation and Material Moving Occupations","Office and Administrative Support Occupations",60,161,0.000816347226447622,3,1,1,1
+2200,"Postsecondary teachers",2310,"Elementary and middle school teachers","Education, Training, and Library Occupations","Education, Training, and Library Occupations",61,157,0.000796065307778116,17,10,1,1
+7200,"Automotive service technicians and mechanics",5700,"Secretaries and administrative assistants","Installation, Maintenance, and Repair Occupations","Office and Administrative Support Occupations",62,154,0.000780853868775986,20,1,1,1
+2040,"Clergy",2310,"Elementary and middle school teachers","Community and Social Service Occupations","Education, Training, and Library Occupations",63,151,0.000765642429773857,240,10,1,0
+7700,"Production supervisors",2310,"Elementary and middle school teachers","Production Occupations","Education, Training, and Library Occupations",64,151,0.000765642429773857,30,10,1,0
+6355,"Electricians",5700,"Secretaries and administrative assistants","Construction and Extraction Occupations","Office and Administrative Support Occupations",65,150,0.00076057195010648,22,1,1,0
+9130,"Truck drivers",2540,"Teacher assistants","Transportation and Material Moving Occupations","Education, Training, and Library Occupations",66,150,0.00076057195010648,1,13,1,1
+9130,"Truck drivers",5860,"General office clerks","Transportation and Material Moving Occupations","Office and Administrative Support Occupations",67,150,0.00076057195010648,1,4,1,1
+6260,"Construction laborers",2310,"Elementary and middle school teachers","Construction and Extraction Occupations","Education, Training, and Library Occupations",68,148,0.000750430990771727,15,10,1,1
+220,"Construction managers",5700,"Secretaries and administrative assistants","Management Occupations","Office and Administrative Support Occupations",69,147,0.00074536051110435,76,1,1,0
+6355,"Electricians",3255,"Registered nurses","Construction and Extraction Occupations","Healthcare Practitioners and Technical Occupations",70,146,0.000740290031436974,22,3,1,0
+7700,"Production supervisors",3255,"Registered nurses","Production Occupations","Healthcare Practitioners and Technical Occupations",71,146,0.000740290031436974,30,3,1,0
+50,"Marketing and sales managers",2310,"Elementary and middle school teachers","Management Occupations","Education, Training, and Library Occupations",72,145,0.000735219551769597,54,10,1,0
+9130,"Truck drivers",430,"Miscellaneous managers","Transportation and Material Moving Occupations","Management Occupations",73,145,0.000735219551769597,1,101,0,1
+8965,"Miscellaneous production workers",5700,"Secretaries and administrative assistants","Production Occupations","Office and Administrative Support Occupations",74,144,0.000730149072102221,93,1,1,0
+9130,"Truck drivers",3500,"Licensed practical and licensed vocational nurses","Transportation and Material Moving Occupations","Healthcare Practitioners and Technical Occupations",75,144,0.000730149072102221,1,22,0,1
+4850,"Wholesale sales representatives",4850,"Wholesale sales representatives","Sales and Related Occupations","Sales and Related Occupations",76,143,0.000725078592434844,7,35,0,1
+6355,"Electricians",2310,"Elementary and middle school teachers","Construction and Extraction Occupations","Education, Training, and Library Occupations",77,143,0.000725078592434844,22,10,1,0
+3850,"Police officers",5700,"Secretaries and administrative assistants","Protective Service Occupations","Office and Administrative Support Occupations",78,142,0.000720008112767468,25,1,1,0
+4760,"Retail salespersons",3255,"Registered nurses","Sales and Related Occupations","Healthcare Practitioners and Technical Occupations",79,142,0.000720008112767468,2,3,1,1
+430,"Miscellaneous managers",230,"Education administrators","Management Occupations","Management Occupations",80,141,0.000714937633100091,69,53,0,0
+220,"Construction managers",2310,"Elementary and middle school teachers","Management Occupations","Education, Training, and Library Occupations",81,140,0.000709867153432715,76,10,1,0
+10,"Chief executives and legislators",430,"Miscellaneous managers","Management Occupations","Management Occupations",82,136,0.000689585234763209,97,101,0,0
+4700,"Retail sales supervisors",5120,"Bookkeeping, accounting, and auditing clerks","Sales and Related Occupations","Office and Administrative Support Occupations",83,135,0.000684514755095832,19,11,1,1
+4710,"Non-retail sales supervisors",3255,"Registered nurses","Sales and Related Occupations","Healthcare Practitioners and Technical Occupations",84,135,0.000684514755095832,96,3,1,0
+4760,"Retail salespersons",4760,"Retail salespersons","Sales and Related Occupations","Sales and Related Occupations",85,135,0.000684514755095832,2,5,1,1
+9130,"Truck drivers",800,"Accountants and auditors","Transportation and Material Moving Occupations","Business and Financial Operations Occupations",86,134,0.000679444275428456,1,19,1,1
+205,"Farmers, ranchers, and other agricultural managers",3255,"Registered nurses","Management Occupations","Healthcare Practitioners and Technical Occupations",87,132,0.000669303316093702,316,3,1,0
+6230,"Carpenters",3255,"Registered nurses","Construction and Extraction Occupations","Healthcare Practitioners and Technical Occupations",88,131,0.000664232836426326,21,3,1,0
+430,"Miscellaneous managers",350,"Medical and health services managers","Management Occupations","Management Occupations",89,130,0.000659162356758949,69,63,0,0
+6050,"Miscellaneous agricultural workers",6050,"Miscellaneous agricultural workers","Farming, Fishing, and Forestry Occupations","Farming, Fishing, and Forestry Occupations",90,130,0.000659162356758949,64,147,0,0
+3740,"Firefighters",2310,"Elementary and middle school teachers","Protective Service Occupations","Education, Training, and Library Occupations",91,129,0.000654091877091573,57,10,1,0
+5000,"Office and administrative support supervisors",2310,"Elementary and middle school teachers","Office and Administrative Support Occupations","Education, Training, and Library Occupations",92,128,0.000649021397424196,32,10,1,0
+20,"General and operations managers",5700,"Secretaries and administrative assistants","Management Occupations","Office and Administrative Support Occupations",93,127,0.00064395091775682,4,1,1,1
+2310,"Elementary and middle school teachers",5700,"Secretaries and administrative assistants","Education, Training, and Library Occupations","Office and Administrative Support Occupations",94,127,0.00064395091775682,42,1,1,0
+6230,"Carpenters",2310,"Elementary and middle school teachers","Construction and Extraction Occupations","Education, Training, and Library Occupations",95,127,0.00064395091775682,21,10,1,0
+9130,"Truck drivers",9130,"Truck drivers","Transportation and Material Moving Occupations","Transportation and Material Moving Occupations",96,127,0.00064395091775682,1,89,0,1

@@ -1,0 +1,174 @@
+"OCCP_H","OCCP_W","Husband_Occ","Wife_Occ","Husband_Occ_Group","Wife_Occ_Group","same_occ","same_occ_group","occ_num_h","occ_num_w"
+10,10,"Chief executives and legislators","Chief executives and legislators","Management","Management",1,1,1,1
+110,110,"Computer and information systems managers","Computer and information systems managers","Management","Management",1,1,4,4
+120,2310,"Financial managers","Elementary and middle school teachers","Management","Education, Training and Library",0,0,5,48
+136,2310,"Human resources managers","Elementary and middle school teachers","Management","Education, Training and Library",0,0,6,48
+150,2310,"Purchasing managers","Elementary and middle school teachers","Management","Education, Training and Library",0,0,7,48
+205,205,"Farmers, ranchers, and other agricultural managers","Farmers, ranchers, and other agricultural managers","Management","Management",1,1,8,8
+205,2310,"Farmers, ranchers, and other agricultural managers","Elementary and middle school teachers","Management","Education, Training and Library",0,0,8,48
+205,6050,"Farmers, ranchers, and other agricultural managers","Miscellaneous agricultural workers","Management","Farming, Fishing, and Forestry",0,0,8,113
+220,220,"Construction managers","Construction managers","Management","Management",1,1,9,9
+230,230,"Education administrators","Education administrators","Management","Management",1,1,10,10
+230,2310,"Education administrators","Elementary and middle school teachers","Management","Education, Training and Library",0,0,10,48
+300,2310,"Architectural and engineering managers","Elementary and middle school teachers","Management","Education, Training and Library",0,0,11,48
+310,310,"Food service managers","Food service managers","Management","Management",1,1,12,12
+340,340,"Lodging managers","Lodging managers","Management","Management",1,1,13,13
+430,10,"Miscellaneous managers","Chief executives and legislators","Management","Management",0,1,14,1
+430,50,"Miscellaneous managers","Marketing and sales managers","Management","Management",0,1,14,2
+430,60,"Miscellaneous managers","Public relations and fundraising managers","Management","Management",0,1,14,3
+430,136,"Miscellaneous managers","Human resources managers","Management","Management",0,1,14,6
+430,150,"Miscellaneous managers","Purchasing managers","Management","Management",0,1,14,7
+430,220,"Miscellaneous managers","Construction managers","Management","Management",0,1,14,9
+430,430,"Miscellaneous managers","Miscellaneous managers","Management","Management",1,1,14,14
+430,565,"Miscellaneous managers","Compliance officers","Management","Business and Financial Operations",0,0,14,16
+430,640,"Miscellaneous managers","Compensation and benefits specialists","Management","Business and Financial Operations",0,0,14,17
+430,710,"Miscellaneous managers","Management analysts","Management","Business and Financial Operations",0,0,14,18
+430,740,"Miscellaneous managers","Other business operations specialists","Management","Business and Financial Operations",0,0,14,19
+430,850,"Miscellaneous managers","Personal financial advisors","Management","Business and Financial Operations",0,0,14,21
+430,1020,"Miscellaneous managers","Software developers","Management","Computer and Mathematics",0,0,14,25
+430,1060,"Miscellaneous managers","Database administrators","Management","Computer and Mathematics",0,0,14,27
+430,1220,"Miscellaneous managers","Operations research analysts","Management","Computer and Mathematics",0,0,14,29
+430,1360,"Miscellaneous managers","Civil engineers","Management","Architecture and Engineering",0,0,14,31
+430,1430,"Miscellaneous managers","Industrian engineers","Management","Architecture and Engineering",0,0,14,33
+430,1650,"Miscellaneous managers","Other life scientists","Management","Life, Physical, and Social Sciences",0,0,14,37
+430,2710,"Miscellaneous managers","Producers and directors","Management","Arts, Design, Entertainment, Sports, and Media",0,0,14,53
+430,2840,"Miscellaneous managers","Technical writers","Management","Arts, Design, Entertainment, Sports, and Media",0,0,14,58
+430,2850,"Miscellaneous managers","Writers and authors","Management","Arts, Design, Entertainment, Sports, and Media",0,0,14,59
+430,2910,"Miscellaneous managers","Photographers","Management","Arts, Design, Entertainment, Sports, and Media",0,0,14,60
+430,4800,"Miscellaneous managers","Advertising sales agents","Management","Sales",0,0,14,101
+430,4920,"Miscellaneous managers","Real estate agents","Management","Sales",0,0,14,104
+430,5600,"Miscellaneous managers","Production, planning, and expediting clerks","Management","Office and Administrative Support",0,0,14,109
+540,2310,"Claims adjusters","Elementary and middle school teachers","Business and Financial Operations","Education, Training and Library",0,0,15,48
+565,2310,"Compliance officers","Elementary and middle school teachers","Business and Financial Operations","Education, Training and Library",0,0,16,48
+800,800,"Accountants and auditors","Accountants and auditors","Business and Financial Operations","Business and Financial Operations",1,1,20,20
+800,2310,"Accountants and auditors","Elementary and middle school teachers","Business and Financial Operations","Education, Training and Library",0,0,20,48
+850,2310,"Personal financial advisors","Elementary and middle school teachers","Business and Financial Operations","Education, Training and Library",0,0,21,48
+860,2310,"Insurance underwriters","Elementary and middle school teachers","Business and Financial Operations","Education, Training and Library",0,0,22,48
+910,2310,"Credit counselors and loan officers","Elementary and middle school teachers","Business and Financial Operations","Education, Training and Library",0,0,23,48
+1010,1010,"Computer programmers","Computer programmers","Computer and Mathematics","Computer and Mathematics",1,1,24,24
+1020,1020,"Software developers","Software developers","Computer and Mathematics","Computer and Mathematics",1,1,25,25
+1020,1430,"Software developers","Industrian engineers","Computer and Mathematics","Architecture and Engineering",0,0,25,33
+1030,1030,"Web developers","Web developers","Computer and Mathematics","Computer and Mathematics",1,1,26,26
+1060,2310,"Database administrators","Elementary and middle school teachers","Computer and Mathematics","Education, Training and Library",0,0,27,48
+1107,1107,"Other computer occupations","Other computer occupations","Computer and Mathematics","Computer and Mathematics",1,1,28,28
+1220,2310,"Operations research analysts","Elementary and middle school teachers","Computer and Mathematics","Education, Training and Library",0,0,29,48
+1300,1300,"Architects","Architects","Architecture and Engineering","Architecture and Engineering",1,1,30,30
+1360,2310,"Civil engineers","Elementary and middle school teachers","Architecture and Engineering","Education, Training and Library",0,0,31,48
+1410,1410,"Electrical engineers","Electrical engineers","Architecture and Engineering","Architecture and Engineering",1,1,32,32
+1460,1460,"Mechanical engineers","Mechanical engineers","Architecture and Engineering","Architecture and Engineering",1,1,34,34
+1530,1360,"Miscellaneous engineers","Civil engineers","Architecture and Engineering","Architecture and Engineering",0,1,35,31
+1530,1530,"Miscellaneous engineers","Miscellaneous engineers","Architecture and Engineering","Architecture and Engineering",1,1,35,35
+1610,2310,"Biological scientists","Elementary and middle school teachers","Life, Physical, and Social Sciences","Education, Training and Library",0,0,36,48
+1650,1650,"Other life scientists","Other life scientists","Life, Physical, and Social Sciences","Life, Physical, and Social Sciences",1,1,37,37
+1760,1760,"Other physical scientists","Other physical scientists","Life, Physical, and Social Sciences","Life, Physical, and Social Sciences",1,1,38,38
+1820,1820,"Psychologists","Psychologists","Life, Physical, and Social Sciences","Life, Physical, and Social Sciences",1,1,39,39
+2000,2310,"Counselors","Elementary and middle school teachers","Community and Social Service","Education, Training and Library",0,0,40,48
+2010,2010,"Social workers","Social workers","Community and Social Service","Community and Social Service",1,1,41,41
+2015,2310,"Probation officers","Elementary and middle school teachers","Community and Social Service","Education, Training and Library",0,0,42,48
+2040,2040,"Clergy","Clergy","Community and Social Service","Community and Social Service",1,1,43,43
+2040,2060,"Clergy","Religious workers","Community and Social Service","Community and Social Service",0,1,43,44
+2040,2310,"Clergy","Elementary and middle school teachers","Community and Social Service","Education, Training and Library",0,0,43,48
+2100,2100,"Layers and judges","Layers and judges","Legal","Legal",1,1,45,45
+2160,2310,"Miscellaneous legal support workers","Elementary and middle school teachers","Legal","Education, Training and Library",0,0,46,48
+2200,1760,"Postsecondary teachers","Other physical scientists","Education, Training and Library","Life, Physical, and Social Sciences",0,0,47,38
+2200,2200,"Postsecondary teachers","Postsecondary teachers","Education, Training and Library","Education, Training and Library",1,1,47,47
+2310,2310,"Elementary and middle school teachers","Elementary and middle school teachers","Education, Training and Library","Education, Training and Library",1,1,48,48
+2320,2310,"Secondary school teachers","Elementary and middle school teachers","Education, Training and Library","Education, Training and Library",0,1,49,48
+2320,2320,"Secondary school teachers","Secondary school teachers","Education, Training and Library","Education, Training and Library",1,1,49,49
+2330,2310,"Special education teachers","Elementary and middle school teachers","Education, Training and Library","Education, Training and Library",0,1,50,48
+2330,2330,"Special education teachers","Special education teachers","Education, Training and Library","Education, Training and Library",1,1,50,50
+2430,2310,"Librarians","Elementary and middle school teachers","Education, Training and Library","Education, Training and Library",0,1,51,48
+2430,2430,"Librarians","Librarians","Education, Training and Library","Education, Training and Library",1,1,51,51
+2540,2310,"Teacher assistants","Elementary and middle school teachers","Education, Training and Library","Education, Training and Library",0,1,52,48
+2710,2310,"Producers and directors","Elementary and middle school teachers","Arts, Design, Entertainment, Sports, and Media","Education, Training and Library",0,0,53,48
+2710,2710,"Producers and directors","Producers and directors","Arts, Design, Entertainment, Sports, and Media","Arts, Design, Entertainment, Sports, and Media",1,1,53,53
+2720,2310,"Athletes and coaches","Elementary and middle school teachers","Arts, Design, Entertainment, Sports, and Media","Education, Training and Library",0,0,54,48
+2720,2720,"Athletes and coaches","Athletes and coaches","Arts, Design, Entertainment, Sports, and Media","Arts, Design, Entertainment, Sports, and Media",1,1,54,54
+2750,2750,"Musicians and singers","Musicians and singers","Arts, Design, Entertainment, Sports, and Media","Arts, Design, Entertainment, Sports, and Media",1,1,55,55
+2810,2310,"News reporters","Elementary and middle school teachers","Arts, Design, Entertainment, Sports, and Media","Education, Training and Library",0,0,56,48
+2810,2810,"News reporters","News reporters","Arts, Design, Entertainment, Sports, and Media","Arts, Design, Entertainment, Sports, and Media",1,1,56,56
+2830,430,"Editors","Miscellaneous managers","Arts, Design, Entertainment, Sports, and Media","Management",0,0,57,14
+2910,2910,"Photographers","Photographers","Arts, Design, Entertainment, Sports, and Media","Arts, Design, Entertainment, Sports, and Media",1,1,60,60
+2920,2310,"Camera operators","Elementary and middle school teachers","Arts, Design, Entertainment, Sports, and Media","Education, Training and Library",0,0,61,48
+3000,2310,"Chiropractors","Elementary and middle school teachers","Healthcare Practitioners and Technicians","Education, Training and Library",0,0,62,48
+3000,3000,"Chiropractors","Chiropractors","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",1,1,62,62
+3010,3010,"Dentists","Dentists","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",1,1,63,63
+3050,3050,"Pharmacists","Pharmacists","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",1,1,64,64
+3060,3010,"Physicians and surgeons","Dentists","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",0,1,65,63
+3060,3060,"Physicians and surgeons","Physicians and surgeons","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",1,1,65,65
+3110,3255,"Physician assistants","Registered nurses","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",0,1,66,70
+3160,3160,"Physical therapists","Physical therapists","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",1,1,67,67
+3220,3255,"Respiratory therapists","Registered nurses","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",0,1,68,70
+3250,3250,"Veterinarians","Veterinarians","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",1,1,69,69
+3255,3255,"Registered nurses","Registered nurses","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",1,1,70,70
+3300,3255,"Laboratory technicians","Registered nurses","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",0,1,71,70
+3300,3300,"Laboratory technicians","Laboratory technicians","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",1,1,71,71
+3320,3255,"Diagnostic technicians","Registered nurses","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",0,1,72,70
+3320,3320,"Diagnostic technicians","Diagnostic technicians","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",1,1,72,72
+3400,3255,"Paramedics and EMTs","Registered nurses","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",0,1,73,70
+3400,3400,"Paramedics and EMTs","Paramedics and EMTs","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",1,1,73,73
+3420,3255,"Health practitioner support technologists and technicians","Registered nurses","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",0,1,74,70
+3500,3255,"Licensed practical and licensed vocational nurses","Registered nurses","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",0,1,75,70
+3500,3500,"Licensed practical and licensed vocational nurses","Licensed practical and licensed vocational nurses","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",1,1,75,75
+3535,3255,"Miscellaneous health technologists and technicians","Registered nurses","Healthcare Practitioners and Technicians","Healthcare Practitioners and Technicians",0,1,76,70
+3540,2310,"Other healthcare practitioners and technical occupations","Elementary and middle school teachers","Healthcare Practitioners and Technicians","Education, Training and Library",0,0,77,48
+3600,3255,"Nursing, psychiatric, and home health aides","Registered nurses","Healthcare Support","Healthcare Practitioners and Technicians",0,0,78,70
+3600,3600,"Nursing, psychiatric, and home health aides","Nursing, psychiatric, and home health aides","Healthcare Support","Healthcare Support",1,1,78,78
+3740,2310,"Firefighters","Elementary and middle school teachers","Protective Service","Education, Training and Library",0,0,80,48
+3740,3740,"Firefighters","Firefighters","Protective Service","Protective Service",1,1,80,80
+3800,3700,"Bailiffs, correctional officers, and jailers","Correctional officer supervisors","Protective Service","Protective Service",0,1,81,79
+3800,3800,"Bailiffs, correctional officers, and jailers","Bailiffs, correctional officers, and jailers","Protective Service","Protective Service",1,1,81,81
+3820,2310,"Detectives","Elementary and middle school teachers","Protective Service","Education, Training and Library",0,0,82,48
+3820,3820,"Detectives","Detectives","Protective Service","Protective Service",1,1,82,82
+3850,2310,"Police officers","Elementary and middle school teachers","Protective Service","Education, Training and Library",0,0,83,48
+3850,3820,"Police officers","Detectives","Protective Service","Protective Service",0,1,83,82
+3850,3850,"Police officers","Police officers","Protective Service","Protective Service",1,1,83,83
+3850,5520,"Police officers","Dispatchers","Protective Service","Office and Administrative Support",0,0,83,106
+3930,3930,"Security guards","Security guards","Protective Service","Protective Service",1,1,84,84
+4000,4000,"Chefs and head cooks","Chefs and head cooks","Food Preparation and Serving","Food Preparation and Serving",1,1,85,85
+4020,4020,"Cooks","Cooks","Food Preparation and Serving","Food Preparation and Serving",1,1,86,86
+4030,4030,"Food preparation workers","Food preparation workers","Food Preparation and Serving","Food Preparation and Serving",1,1,87,87
+4110,4110,"Waiters and waitresses","Waiters and waitresses","Food Preparation and Serving","Food Preparation and Serving",1,1,89,89
+4140,4230,"Dishwashers","Maids and housekeepers","Food Preparation and Serving","Building and Grounds Cleaning and Maintenance",0,0,90,92
+4200,4200,"Housekeeping and janitorial supervisors","Housekeeping and janitorial supervisors","Building and Grounds Cleaning and Maintenance","Building and Grounds Cleaning and Maintenance",1,1,91,91
+4230,4230,"Maids and housekeepers","Maids and housekeepers","Building and Grounds Cleaning and Maintenance","Building and Grounds Cleaning and Maintenance",1,1,92,92
+4250,4250,"Grounds maintenance workers","Grounds maintenance workers","Building and Grounds Cleaning and Maintenance","Building and Grounds Cleaning and Maintenance",1,1,93,93
+4400,4400,"Gaming services workers","Gaming services workers","Personal Care and Service","Personal Care and Service",1,1,94,94
+4510,4510,"Hairdressers","Hairdressers","Personal Care and Service","Personal Care and Service",1,1,95,95
+4520,4520,"Miscellaneous personal appearance workers","Miscellaneous personal appearance workers","Personal Care and Service","Personal Care and Service",1,1,96,96
+4600,4600,"Childcare workers","Childcare workers","Personal Care and Service","Personal Care and Service",1,1,97,97
+4610,4610,"Personal care aides","Personal care aides","Personal Care and Service","Personal Care and Service",1,1,98,98
+4700,4700,"Retail sales supervisors","Retail sales supervisors","Sales","Sales",1,1,99,99
+4710,4710,"Non-retail sales supervisors","Non-retail sales supervisors","Sales","Sales",1,1,100,100
+4810,2310,"Insurance sales agents","Elementary and middle school teachers","Sales","Education, Training and Library",0,0,102,48
+4850,4850,"Wholesale sales representatives","Wholesale sales representatives","Sales","Sales",1,1,103,103
+4920,4920,"Real estate agents","Real estate agents","Sales","Sales",1,1,104,104
+4965,2310,"Other sales workers","Elementary and middle school teachers","Sales","Education, Training and Library",0,0,105,48
+5540,5540,"Postal service clerks","Postal service clerks","Office and Administrative Support","Office and Administrative Support",1,1,107,107
+5550,5540,"Mail carriers","Postal service clerks","Office and Administrative Support","Office and Administrative Support",0,1,108,107
+5550,5550,"Mail carriers","Mail carriers","Office and Administrative Support","Office and Administrative Support",1,1,108,108
+5840,2310,"Insurance claims and policy processing clerks","Elementary and middle school teachers","Office and Administrative Support","Education, Training and Library",0,0,110,48
+5840,5840,"Insurance claims and policy processing clerks","Insurance claims and policy processing clerks","Office and Administrative Support","Office and Administrative Support",1,1,110,110
+5860,5860,"General office clerks","General office clerks","Office and Administrative Support","Office and Administrative Support",1,1,111,111
+6050,6040,"Miscellaneous agricultural workers","Agricultural graders and sorters","Farming, Fishing, and Forestry","Farming, Fishing, and Forestry",0,1,113,112
+6050,6050,"Miscellaneous agricultural workers","Miscellaneous agricultural workers","Farming, Fishing, and Forestry","Farming, Fishing, and Forestry",1,1,113,113
+6260,6260,"Construction laborers","Construction laborers","Construction and Extraction","Construction and Extraction",1,1,114,114
+6420,6420,"Painters and paperhangers","Painters and paperhangers","Construction and Extraction","Construction and Extraction",1,1,115,115
+7750,7750,"Miscellaneous assemblers and fabricators","Miscellaneous assemblers and fabricators","Production","Production",1,1,116,116
+7800,4700,"Bakers","Retail sales supervisors","Production","Sales",0,0,117,99
+7800,7800,"Bakers","Bakers","Production","Production",1,1,117,117
+7810,7810,"Butchers","Butchers","Production","Production",1,1,118,118
+7855,7855,"Other food processing workers","Other food processing workers","Production","Production",1,1,119,119
+8220,8220,"Miscellaneous metal and plastic workers","Miscellaneous metal and plastic workers","Production","Production",1,1,120,120
+8300,8300,"Laundry and dry-cleaning workers","Laundry and dry-cleaning workers","Production","Production",1,1,121,121
+8320,8320,"Sewing machine operators","Sewing machine operators","Production","Production",1,1,122,122
+8800,8800,"Packaging and filling machine operators and tenders","Packaging and filling machine operators and tenders","Production","Production",1,1,123,123
+8965,8965,"Miscellaneous production workers","Miscellaneous production workers","Production","Production",1,1,124,124
+9030,9030,"Aircraft pilots and flight engineers","Aircraft pilots and flight engineers","Transportation and Material Moving","Transportation and Material Moving",1,1,125,125
+9050,9050,"Flight attendants","Flight attendants","Transportation and Material Moving","Transportation and Material Moving",1,1,126,126
+9130,4050,"Truck drivers","Food preparation and serving workers","Transportation and Material Moving","Food Preparation and Serving",0,0,128,88
+9130,9120,"Truck drivers","Bus drivers","Transportation and Material Moving","Transportation and Material Moving",0,1,128,127
+9130,9130,"Truck drivers","Truck drivers","Transportation and Material Moving","Transportation and Material Moving",1,1,128,128
+9140,9140,"Taxi drivers and chauffeurs","Taxi drivers and chauffeurs","Transportation and Material Moving","Transportation and Material Moving",1,1,129,129
+9620,9620,"Laborers and hand movers","Laborers and hand movers","Transportation and Material Moving","Transportation and Material Moving",1,1,130,130
+9640,9640,"Hand packers","Hand packers","Transportation and Material Moving","Transportation and Material Moving",1,1,131,131
