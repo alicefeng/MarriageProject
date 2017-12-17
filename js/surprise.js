@@ -1,123 +1,103 @@
-var dataset;
+var formatPercent = d3.format(".1%");
+
+var dataset2;
 
 // chart
-var w = 800,
-	h = 600,
-	padding_h = 50,
-	padding_l = 250;	
+var w_s = 500,
+	h_s = 250,
+	padding_s = 10;	
 
-// set up scales
-var xScale = d3.scale.linear()
-	.domain([0, 100])
-	.rangeRound([0, w]);
-
-var yScale = d3.scale.linear()
-	.rangeRound([h, 0]);
-
-var rScale = d3.scale.sqrt()
-	.domain([0, 1])
-	.range([0, 100]);
-
-var occScale = d3.scale.ordinal()
-	.domain(['Architecture and Engineering',
-			'Computer and Mathematics',
-			'Life, Physical, and Social Sciences',
-			'Arts, Design, Entertainment, Sports, and Media',
-			'Community and Social Service',
-			'Education, Training, and Library',
-			'Legal',
-			'Healthcare Practitioners and Technicians',
-			'Business and Financial Operations',
-			'Management',
-			'Construction and Extraction',
-			'Farming, Fishing, and Forestry',
-			'Installation, Maintenance, and Repair',
-			'Production',
-			'Transportation and Material Moving',
-			'Office and Administrative Support',
-			'Sales',
-			'Building and Grounds Cleaning and Maintenance',
-			'Food Preparation and Serving',
-			'Healthcare Support',
-			'Personal Care and Service',
-			'Protective Service'])
-	.range(['#f7dc6f', '#f1c40f', '#b7950b', '#e59866',
-			'#d35400', '#a04000', '#873600', '#f39c12',
-			'#e67e22', '#af601a', '#85c1e9', '#3498db',
-		    '#2874a6', '#c0392b', '#d98880', '#8e44ad',
-			'#bb8fce', '#a3e4d7', '#76d7c4', '#1abc9c',
-			'#148f77', '#0e6251']);
-
-var surprisePlot = d3.select("#splot")
+var appendixPlot = d3.select("#appendix_plot")
   .append("svg")
-	.attr("width", w + padding_l * 2)
-	.attr("height", h + padding_h * 2)
+	.attr("width", w_s + padding_s * 2)
+	.attr("height", h_s + padding_s * 2)
   .append("g")
-  	.attr("transform", "translate(" + padding_l + ", " + padding_h + ")");
+  	.attr("transform", "translate(" + padding_s + ", " + padding_s + ")");
 
-d3.csv('Data/data_husbands.csv', function(d) {
+d3.csv('Data/appendix_data.csv', function(d) {
 	
 	return {
-		occp_h: d.OCCP_H,
-		occp_w: d.OCCP_W,
-		husband_occ: d.Husband_Occ,
-		wife_occ: d.Wife_Occ,
-		wife_occ_group: d.SOC_Major_Group,
-		wife_edu: +d.Wife_edu,
+		ref_occ: d.Ref_Occ,
+		spouse_occ: d.Spouse_Occ,
 		pct_couples: +d.pct_couples,
-		pct_women: +d.PctWomen2,
-		surprise: +d.surprise
+		ref_person: d.ref_person,
 	};
 
 }, function(error, data) {
 
-	yScale.domain([d3.min(data, function(d) { return d.surprise; }), d3.max(data, function(d) { return d.surprise; }) ]);
-
 	var nested_data = d3.nest()
-		.key(function(d) { return d.husband_occ; })
+		.key(function(d) { return d.ref_occ; }).sortKeys(d3.ascending)
 		.entries(data);
 
-	dataset = nested_data;
+	//dataset2 = nested_data;
+	dataset2 = data;
 	
-	//populate dropdown with occupation names
-	var occupations = d3.values(dataset).map(function(d) { return d.key; });
-
-	var select = d3.select("#occselect")
+	// select spouse gender dropdown 
+	var sexselect = d3.select("#sexselect")
 		.on("change", onchange);
 
-	var options = select
+	var sexes = sexselect
+		.selectAll("option")
+		.data(["Husband", "Wife"])
+	  .enter().append("option")
+	  	.text(function(d) { return d; })
+	  	.attr("value", function(d) { return d; });
+
+	//populate dropdown with occupation names
+	var occupations = d3.values(nested_data).map(function(d) { return d.key; });
+
+	var occselect = d3.select("#occselect")
+		.on("change", onchange);
+
+	var options = occselect
 		.selectAll("option")
 		.data(occupations)
-		.enter()
-		.append("option")
+	  .enter().append("option")
 		.text(function(d) { return d; })
 		.attr("value", function(d) { return d; }); 
 	
-	make_surprise_plot(nested_data, "Chief executives and legislators");
+	make_surprise_plot(dataset2, "Husband", "Chief executives and legislators");
 });
 
 
 function onchange() {
+	selectSex = d3.select('#sexselect').property('value');
 	selectOcc = d3.select('#occselect').property('value');
-	make_surprise_plot(dataset, selectOcc);
+	make_surprise_plot(dataset2, selectSex, selectOcc);
 }
 
-function make_surprise_plot(data, occupation) {
-	var selected = data.filter(function(d) { return d.key===occupation; });
+function make_surprise_plot(data, sex, occupation) {
+
+	var selected = data.filter(function(d) { return d.ref_person==sex & d.ref_occ===occupation; });
 	
-	var circles = surprisePlot.selectAll("circle")
-		.data(selected[0].values)
-		.attr("r", function(d) { return rScale(d.pct_women); })
-	  	.attr("cx", function(d) { return xScale(d.wife_edu); }) 
-	  	.attr("cy", function(d) { return yScale(d.surprise); })
-	  	.attr("fill", function(d) { return occScale(d.wife_occ_group); });
+	if(selected.length===0) {
+		var spouseoccs = appendixPlot.selectAll(".occtext")
+			.data([1])
+			.attr("class", "occtext")
+			.attr("x", 0)
+		  	.attr("y", 0) 
+		  	.attr("dy", 3)
+		  	.text("Not enough data");
 
-	circles.enter()
-	  .append("circle")
-	  	.attr("r", function(d) { return rScale(d.pct_women); })
-	  	.attr("cx", function(d) { return xScale(d.wife_edu); }) 
-	  	.attr("cy", function(d) { return yScale(d.surprise); })
-	  	.attr("fill", function(d) { return occScale(d.wife_occ_group); });
+		spouseoccs.exit().remove();
+	}
+	else {
+		var spouseoccs = appendixPlot.selectAll(".occtext")
+			.data(selected)
+			.attr("class", "occtext")
+			.attr("x", 0)
+		  	.attr("y", function(d, i) { return i * 24; }) 
+		  	.attr("dy", 3)
+		  	.text(function(d, i) { return (i+1) + ". " + d.spouse_occ + " (" + formatPercent(d.pct_couples) + ")"; });
 
-	circles.exit().remove();
+		spouseoccs.enter()
+		  .append("text")
+		  	.attr("class", "occtext")
+		  	.attr("x", 0)
+		  	.attr("y", function(d, i) { return i * 24; }) 
+		  	.attr("dy", 3)
+		  	.text(function(d, i) { return (i+1) + ". " + d.spouse_occ + " (" + formatPercent(d.pct_couples) + ")"; });
+
+		spouseoccs.exit().remove();
+	}
 }

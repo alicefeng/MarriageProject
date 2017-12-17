@@ -3,177 +3,167 @@
     <head>
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-
-        <title>The Dynamics of Marriage </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- // <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Roboto" rel="stylesheet"> 
+        <title>Surprise Marriages</title>
     </head>
     
     <body>
-		
-		<div class="container">
-			<div class="row" id="intro">
-				<div id="title">
-					<h1>Who's Marrying Whom?</h1>
-				</div>
-				<div id="subtitle">
-					<h4>Looking at the socioeconomic dynamics of marriage</h4>
-				</div>	
-				<p>In the growing discourse about income inequality in the United States, much has been made about the state of marriage: that it is becoming <a href="http://www.usnews.com/news/blogs/data-mine/2015/10/26/marriage-and-the-growing-class-divide">increasingly concentrated among the well-off and well-educated</a> and that people are <a href="http://www.nytimes.com/2015/12/27/upshot/marriages-of-power-couples-reinforce-income-inequality.html?_r=0">pairing off with their socioeconomic peers</a>.  Just how strong is that effect?</p>
-			</div>
-			<div id="occmatch" class="row inactive">
-				<div class="col-sm-4 text" id="heatmaptitle">
-					<h3>What Jobs do Married Couples Tend to Hold?</h3>
-					<p>Let's first take a look at what occupations tend to pair off together.  Using the 2014 American Community Survey, we can observe the jobs held by over 200,000 married couples.</p>
-					<p>The heatmap to the right shows just how common (or uncommon) marriages are between different occupation groups.  Groups are ordered such that those with high-paid, well-educated workers are located in the top-left corner and those with low-paid, less-educated workers are in the bottom right.</p>  
-					<p>Hover over each square to find out what percentage of workers within one occupation marry those employed in another.</p>
-				</div>
-				<div id="occheatmap" class="col-sm-8 viz"></div>
-			</div>
-			<div id="diff" class="row inactive">
-				<div class="col-sm-4 text">
-					<h3>Income and Education Levels Between Spouses</h3>
-					<p>Another way of examining the socioeconomic dynamics of marriage is to look at how spouses' income and education levels compare to one another.  Do people tend to marry those with similar earnings and educational attainment as themselves?</p>
-					<p>Click below to see whether Lawyers and Judges tend to earn more than their spouses or if Building Cleaners and Groundskeepers have fewer years of schooling than their partners do.</p>
-					<div class="btn-group btn-group-sm" role="group">
-						<button type="button" id="incplot" class="btn btn-default active" onclick="selectInc()">Income</button>
-						<button type="button" id="eduplot" class="btn btn-default" onclick="selectEdu()">Education</button>
-					</div>
-					<svg class="legend">
-						<g transform="translate(0,20)">
-							<rect x="5" y="0" width="15" height="15" fill="#e66101"></rect><text x="25" y="10" id="diffless">Spouse earns more</text>
-							<rect x="5" y="20" width="15" height="15" fill="#f6f6f6"></rect><text x="25" y="30" id="diffsame">Spouse earns roughly the same</text>
-							<rect x="5" y="40" width="15" height="15" fill="#b2abd2"></rect><text x="25" y="50" id="diffmore">Spouse earns less</text>
-						</g>
-					</svg>
-				</div>
-				<div id="diffplot" class="col-sm-8 viz"></div>
-			</div>
-			<div id="occcompare" class="row inactive">
-				<div class="col-sm-4 text">
-					<h3>Now let's take a look at who's getting and married who is not.</h3>
-					<p>First let's examine which workers tend to get married.  For these next few graphs, we'll focus on adults between the ages of 35 to 50 since most people will have completed their education, been working and gotten married by then.</p>
-					<p>The graph to the right breaks down the percentage of workers within each occupational group who are married.</p>
-					<svg class="legend">
-						<g transform="translate(0,20)">
-							<rect x="5" y="0" width="15" height="15" fill="#6b5ea9"></rect><text x="25" y="10">Married</text>
-							<rect x="5" y="20" width="15" height="15" fill="#bbb"></rect><text x="25" y="30">Not Married</text>
-						</g>
-					</svg>
-				</div>
-				<div id="occcompplot" class="col-sm-8 viz"></div>
-			</div>
-			<div id="inccompare" class="row inactive">
-				<div class="col-sm-4 text">
-					<p>Here's how the income distribution of married adults compares to those who are not married.</p>
-				</div>
-				<div id="inccompplot" class="col-sm-8 viz"></div>
-			</div>
-			<div id="educompare" class="row inactive">
-				<div class="col-sm-4 text">
-					<p>And here's what the educational attainment of married adults and unmarried adults look like.</p>
-				</div>
-				<div id="educompplot" class="col-sm-8 viz"></div>
-			</div>
-			<div id="conclusion" class="row">
-				<p>Marriage dynamics are certainly complex and cannot just be boiled down to numbers and statistics, but it is nevertheless an important topic worth studying due to the associations between marriage, poverty, and the well-being of children.  Who's getting married to whom can impact not only the well-being of today's families but also that of future generations.</p>
-			</div>
-			<div id="occscatter" class="row inactive">
-		        <div class="col-sm-4 text">
-					<h3>Addendum: Some Facts about Occupations </h3>
-					<p>Here is how average earnings, educational attainment, employment size and gender composition compare between these occupational groups. </p>
-					<p>The size of the circle corresponds to the number of workers in that job grouping.  Hover over each circle to find out more details.</p>
-					<svg class="legend">
-						<defs>
-							<linearGradient id="gender-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-								<stop offset="0%" style="stop-color:#0571b0;stop-opacity:1" />
-								<stop offset="50%" style="stop-color:#f7f7f7;stop-opacity:1" />
-								<stop offset="100%" style="stop-color:#ca0020;stop-opacity:1" />
-							</linearGradient>
-						</defs>
-						<g>
-							<text x="0" y="15">More Men</text>
-							<rect x="55" y="0" width="100" height="20" fill="url(#gender-gradient)"></rect>
-							<text x="160" y="15">More Women</text>
-						</g>
-					</svg>
-				</div>
-				<div id="occscatterplot" class="col-sm-8 viz"></div>
-			</div>
-			<div id="footer" class="row">
-				Data Sources: 2014 American Community Survey, Bureau of Labor Statistics Employment Projections 2012-13, Current Population Survey 2015, Occupational Employment Statistics Survey 2015.
-				Code and data available on <a href="https://github.com/alicefeng/MarriageProject">Github</a>.
-			</div>
-		</div>
+        <div class="container">
+            <h1>Surprise Marriages</h1>
+
+            <p>Marriage can be a mysterious thing.  What drives people to get together?  There have been <a href="https://www.bloomberg.com/graphics/2016-who-marries-whom/">several</a> <a href="http://flowingdata.com/2017/08/28/occupation-matchmaker/">visualizations</a> examining marriage dynamics through the lens of occupations.  I want to explore this topic from a different perspective.  Instead of simply visualizing who a plumber or a CEO is most likely to marry, I want to see if there are any factors driving these kinds of pairings.</p>
+            <p>Let's begin by looking at the most common matchups between occupations.</p>
+
+            <h2>Most Common Marriages</h2>
+            <p>Below are the jobs husbands and wives hold for the top 25 most frequently observed pairings.  Rather than comparing specific job titles between spouses, let's instead examine the popularity of those jobs.  Circles farther to the left indicate that the husband or wife works in a more popular job among workers of their gender.  (Since men and women tend to work in different occupations, it's important to look at job frequency between the two sexes separately.)</p>
+            <div class="plot full-reveal" id="cplot"></div>
+            <!-- <input type="button" value="Show More Couples" id="toggle"> -->
+            <p>As we can see, almost all of these couples have a spouse employed in a highly popular occupation.  Therefore, seeing so many marriages between these workers would be expected as there are simply lots of people who have these jobs.</p>
+            <p>Just looking at marriages based on their absolute frequency doesn't seem to shed much light on why people tend to marry one another.  The most commonly observed matches are due to the fact that some jobs employ a much higher share of the population than others.  Thus we should try to identify marriages that are particularly surprising rather than just very common.</p>
+
+            <h2>Most Surprising Marriages</h2>
+            <p>One way of thinking about which marriages are surprising is by asking which pairings occur more often than we would expect.  For this, I am going to apply the concept of <a href="https://medium.com/@uwdata/surprise-maps-showing-the-unexpected-e92b67398865">Bayesian surprise</a>.  In a perfectly random world, the likelihood that a man marries a woman who works as a secretary, for example, would be equal to the percentage of all working women who are employed as secretaries.  If 5% of women are secretaries then we would expect 5% of marriages to be to a female secretary.  Is this in fact what we see?</p>
+            <p>The plots below compares the percent of spouses in each occupational pairing who hold a particular job with the share of the overall population of workers employed in that profession.  Pairings that fall on the dotted line are ones where the share of spouses is equal to the share of all workers with that occupation.</p>
+            <div class="wrapper plot">
+                <div class="box" id="splot1"></div>
+                <div class="box" id="splot2"></div>
+            </div>
+            <p>It seems the frequency of most matchups is roughly similar to what we would have expected.  But there are some pairings that occur at a much higher rate - we might consider these to be "surprising" marriages.  Let's take a deeper look at these couples.</p>
+            <div class="graphic" id="surprise">
+                <div class="graphic__prose">
+                    <p class="trigger" data-step="0">This row represents husbands who are chief executives or legislators.</p>
+                    <p class="trigger" data-step="1">Each row represents a different job for the husband.</p>
+                    <p class="trigger" data-step="2">This column represents wives who are chief executives or legislators.</p>
+                    <p class="trigger" data-step="3">Each column represents a different job for the wife.</p>
+                    <p class="trigger" data-step="4">Since marriages where both the husband and wife are chief executives or legislators happens more often than we would expect, the square for that occupational combination is filled in.  The color means both spouses work in the field of management.</p>
+                    <p class="trigger" data-step="5">Each filled-in square indicates that marriages between these occupations occur more frequently than we would expect.  Spouses who work in the same field are filled with a color representing that field.  Grey squares mean the spouses work in different fields.</p>
+                    <p class="trigger" data-step="6"></p>
+                </div>
+                <div class="graphic__vis" id="splot3"></div>
+            </div>
+            <p>As we can see, many of these matches are between spouses who have the same job or work in the same field.  This seems to suggest that people choose to marry either those who have similar interests to themselves or who they encounter frequently at the office.</p>
+            <p>Another interesting pattern that jumps out is that of the remaining surprise marriages not between spouses in the same field, there are a few professions that seem to be chosen as spouses particularly frequently.  For women, elementary and middle school teachers tend to marry at a higher rate than their share of the population would suggest while for men, it is miscellaneous managers who are particularly likely to get married.</p>
+            <p>This leads to one last interesting observation about the dynamics of marriage - which occupations are more likely to marry and which are more likely to stay single?</p>
+
+            <h2>Occupations Most and Least Likely to Marry</h2>
+            <p>It appears that not all workers are equally likely to get married.  Certain jobs such as teachers and secretaries for women or software developers and mechanics for men seem to make for particularly appealing spouses while other professions such as cashiers, home health aides, and maintenance workers account for a smaller share of spouses than their numbers would suggest.</p>
+            <p>Below is a look at some of the most popular jobs for women and men that get married at noticeably higher or lower rates.</p>
+            <div class="plot" id="diff_plot_w">
+                <h3>Female Workers Most and Least Likely to Marry</h3>
+                <svg class="legend" width="900" height="30">
+                    <line x1="250" x2="270" y1="8" y2="8" stroke="#DF744A" stroke-width="2"></line>
+                    <text x="275" y="8" dy="4" style="font-size:14px; fill:#DF744A">Share of female workers</text>
+                    <circle cx="500" cy="8" r=7 style="fill:#bdbdbd; opacity:0.5"></circle>
+                    <text x="515" y="8" dy="4" style="font-size:14px">One occupational pairing</text>
+                </svg>
+            </div>
+            <div class="plot" id="diff_plot_h">
+                <h3>Male Workers Most and Least Likely to Marry</h3>
+                <svg class="legend" width="900" height="30">
+                    <line x1="250" x2="270" y1="8" y2="8" stroke="#609e8f" stroke-width="2"></line>
+                    <text x="275" y="8" dy="4" style="font-size:14px; fill:#609e8f">Share of male workers</text>
+                    <circle cx="500" cy="8" r=7 style="fill:#bdbdbd; opacity:0.5"></circle>
+                    <text x="515" y="8" dy="4" style="font-size:14px">One occupational pairing</text>
+                </svg>
+            </div>
+            <p>Roughly speaking, it appears that workers in more white-collar professions tend to get married at higher rates.  This would support studies showing how marriage has become increasingly <a href="http://www.usnews.com/news/blogs/data-mine/2015/10/26/marriage-and-the-growing-class-divide">associated with socioeconomic status</a>.</p>
+
+            <p>Marriage certainly can't be reduced to numbers and no statistical analysis can explain what causes people to choose one another but looking at data on the occupations of married couples can help uncover some interesting patterns.  At the end of the day, marriage is a very complex decision that is influenced by many factors.</p>
+
+            <h2>Appendix</h2>
+            <p>Find out who people are most likely to marry by occupation:</p>
+            <div id="occselector">
+                <select id="sexselect"></select> is a <select id="occselect"></select>
+            </div>
+            <div class="plot" id="appendix_plot">
+                <p>Most likely to marry:</p>
+            </div>
+            <p>Note: Pairings with fewer than 10 observations were excluded.</p>
+            <p>Data Sources: 2014 American Community Survey, Bureau of Labor Statistics Employment Projections 2012-13, Current Population Survey 2015, Occupational Employment Statistics Survey 2015.</p>
+            <p>&copy; 2017.  Designed by <a mailto="feng.a.g@gmail.com">fleecealeece</a>.</p>
+        </div>
+
+        <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+        <script type="text/javascript" src="js/d3-tip-v0.6.7.js"></script>
+        <script type="text/javascript" src="js/jquery.scrollstory.min.js"></script>
+        <script type="text/javascript" src="js/most_common.js"></script>
+        <script type="text/javascript" src="js/likely_to_marry.js"></script>
+        <script type="text/javascript" src="js/most_surprising.js"></script>
+        <script type="text/javascript" src="js/diff_plot.js"></script> 
+        <script type="text/javascript" src="js/surprise.js"></script>
+        <script>
+            // // button to toggle between how much of common marriages plot to show
+            // $(document).ready(function () {
+            //     $("#toggle").click(function () {
+            //         $("#cplot").toggleClass('full-reveal');
+
+            //         if ($(this).val() == "Show More Couples") {
+            //             $("#toggle").val("Show Fewer Couples");
+            //         }
+            //         else {
+            //             $("#toggle").val("Show More Couples");
+            //         }                    
+            //     });
+            // });
+
+            // implement scrollstory
+            $(function() {
+                // select elements using jQuery since it is a dependency
+                var $graphicEl = $('#surprise');
+                var $graphicVisEl = $graphicEl.find('#splot3');
+                
+                // viewport height
+                var viewportHeight = window.innerHeight;
+                var halfViewportHeight = Math.floor(viewportHeight / 2);
+                
+                // handle the fixed/static position of grahpic
+                var toggle = function(fixed, bottom) {
+                    if (fixed) $graphicVisEl.addClass('is-fixed')
+                    else $graphicVisEl.removeClass('is-fixed')
+
+                    if (bottom) $graphicVisEl.addClass('is-bottom')
+                    else $graphicVisEl.removeClass('is-bottom')
+                }
+
+                // callback function when scrollStory detects item to trigger
+                var handleItemFocus = function(event, item) {
+                    var step = item.data.step
+                    updateGraph(step);
+                }    
+                
+                // callback on scrollStory scroll event
+                // toggle fixed position
+                var handleContainerScroll = function(event) {
+                    var bottom = false
+                    var fixed = false
+
+                    var bb = $graphicEl[0].getBoundingClientRect()
+                    var bottomFromTop = bb.bottom - viewportHeight
+
+                    if (bb.top < 0 && bottomFromTop > 0) {
+                        bottom = false
+                        fixed = true
+                    } else if (bb.top < 0 && bottomFromTop < 0) {
+                        bottom = true
+                        fixed = false
+                    }
+                    toggle(fixed, bottom)
+                }
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>    	
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/animation.gsap.js"></script>
-    	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/plugins/debug.addIndicators.js"></script> -->
-    	<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
-		<script type="text/javascript" src="js/d3-tip-v0.6.7.js"></script>
-
-		<script type="text/javascript" src="js/occheatmap.js"></script>
-		<script type="text/javascript" src="js/incdiffplot.js"></script>
-		<script type="text/javascript" src="js/occcompplot.js"></script>
-		<script type="text/javascript" src="js/inccompplot.js"></script>
-		<script type="text/javascript" src="js/educompplot.js"></script>
-		<script type="text/javascript" src="js/occscatterplot.js"></script>
-		<script>
-			$(".btn").click(function() {
-				$(this).addClass("active").siblings().removeClass("active");
-			});
-
-			$(function() {
-				var controller = new ScrollMagic.Controller();
-
-				new ScrollMagic.Scene()
-					.triggerElement("#occmatch")
-					.setClassToggle("#occmatch", "active")
-					.duration(780)
-				//	.addIndicators()
-					.addTo(controller);
-
-				new ScrollMagic.Scene()
-					.triggerElement("#diff")
-					.setClassToggle("#diff", "active")
-					.duration(700)
-				//	.addIndicators()
-					.addTo(controller);
-					
-				new ScrollMagic.Scene()
-					.triggerElement("#occcompare")
-					.setClassToggle("#occcompare", "active")
-					.duration(700)
-				//	.addIndicators()
-					.addTo(controller);
-
-				new ScrollMagic.Scene()
-					.triggerElement("#inccompare")
-					.setClassToggle("#inccompare", "active")
-					.duration(500)
-				//	.addIndicators()
-					.addTo(controller);
-
-				new ScrollMagic.Scene()
-					.triggerElement("#educompare")
-					.setClassToggle("#educompare", "active")
-					.duration(500)
-				//	.addIndicators()
-					.addTo(controller);
-
-				new ScrollMagic.Scene()
-					.triggerElement("#occscatter")
-					.setClassToggle("#occscatter", "active")
-					.duration(700)
-				//	.addIndicators()
-					.addTo(controller);	
-
-			});
-
-		</script>
+                $graphicEl.scrollStory({
+                    contentSelector: '.trigger',
+                    triggerOffset: halfViewportHeight,
+                    itemfocus: handleItemFocus,
+                    containerscroll: handleContainerScroll,
+                })
+            });
+                    
+        </script>
     </body>
 
 </html>
