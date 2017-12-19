@@ -29,7 +29,7 @@
 430,1060,"Miscellaneous managers","Database administrators","Management","Computer and Mathematics",0,0,14,27
 430,1220,"Miscellaneous managers","Operations research analysts","Management","Computer and Mathematics",0,0,14,29
 430,1360,"Miscellaneous managers","Civil engineers","Management","Architecture and Engineering",0,0,14,31
-430,1430,"Miscellaneous managers","Industrian engineers","Management","Architecture and Engineering",0,0,14,33
+430,1430,"Miscellaneous managers","Industrial engineers","Management","Architecture and Engineering",0,0,14,33
 430,1650,"Miscellaneous managers","Other life scientists","Management","Life, Physical, and Social Sciences",0,0,14,37
 430,2710,"Miscellaneous managers","Producers and directors","Management","Arts, Design, Entertainment, Sports, and Media",0,0,14,53
 430,2840,"Miscellaneous managers","Technical writers","Management","Arts, Design, Entertainment, Sports, and Media",0,0,14,58
@@ -47,7 +47,7 @@
 910,2310,"Credit counselors and loan officers","Elementary and middle school teachers","Business and Financial Operations","Education, Training and Library",0,0,23,48
 1010,1010,"Computer programmers","Computer programmers","Computer and Mathematics","Computer and Mathematics",1,1,24,24
 1020,1020,"Software developers","Software developers","Computer and Mathematics","Computer and Mathematics",1,1,25,25
-1020,1430,"Software developers","Industrian engineers","Computer and Mathematics","Architecture and Engineering",0,0,25,33
+1020,1430,"Software developers","Industrial engineers","Computer and Mathematics","Architecture and Engineering",0,0,25,33
 1030,1030,"Web developers","Web developers","Computer and Mathematics","Computer and Mathematics",1,1,26,26
 1060,2310,"Database administrators","Elementary and middle school teachers","Computer and Mathematics","Education, Training and Library",0,0,27,48
 1107,1107,"Other computer occupations","Other computer occupations","Computer and Mathematics","Computer and Mathematics",1,1,28,28
@@ -68,7 +68,7 @@
 2040,2040,"Clergy","Clergy","Community and Social Service","Community and Social Service",1,1,43,43
 2040,2060,"Clergy","Religious workers","Community and Social Service","Community and Social Service",0,1,43,44
 2040,2310,"Clergy","Elementary and middle school teachers","Community and Social Service","Education, Training and Library",0,0,43,48
-2100,2100,"Layers and judges","Layers and judges","Legal","Legal",1,1,45,45
+2100,2100,"Lawyers and judges","Lawyers and judges","Legal","Legal",1,1,45,45
 2160,2310,"Miscellaneous legal support workers","Elementary and middle school teachers","Legal","Education, Training and Library",0,0,46,48
 2200,1760,"Postsecondary teachers","Other physical scientists","Education, Training and Library","Life, Physical, and Social Sciences",0,0,47,38
 2200,2200,"Postsecondary teachers","Postsecondary teachers","Education, Training and Library","Education, Training and Library",1,1,47,47
